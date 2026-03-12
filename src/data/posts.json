@@ -1,0 +1,41 @@
+[
+  {
+    "id": "neo-classic-2024",
+    "slug": "neo-classic-xu-huong-2024",
+    "title": "Phong Cách Neo-Classic: Sự Hội Tụ Giữa Cổ Điển Và Hiện Đại",
+    "excerpt": "Khám phá cách phong cách Neo-Classic đang chiếm lĩnh thị trường thiết kế nội thất cao cấp Việt Nam năm 2024.",
+    "content": "Neo-Classic là sự kết hợp tinh tế giữa kiến trúc cổ điển châu Âu và ngôn ngữ thiết kế hiện đại...",
+    "category": "Xu Hướng",
+    "tags": ["neo-classic", "thiết kế", "2024"],
+    "coverImage": "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=800&q=80",
+    "readTime": "5",
+    "status": "published",
+    "publishedAt": "2024-03-01T08:00:00.000Z"
+  },
+  {
+    "id": "marble-luxury",
+    "slug": "vat-lieu-marble-luxury",
+    "title": "Vật Liệu Marble: Lựa Chọn Hoàn Hảo Cho Không Gian Luxury",
+    "excerpt": "Hướng dẫn chọn lựa và ứng dụng đá marble cho nội thất cao cấp — từ Carrara Italy đến Onyx đặc biệt.",
+    "content": "Marble đã và đang là vật liệu biểu tượng của sự sang trọng trong thiết kế nội thất...",
+    "category": "Vật Liệu",
+    "tags": ["marble", "vật liệu", "cao cấp"],
+    "coverImage": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=800&q=80",
+    "readTime": "4",
+    "status": "published",
+    "publishedAt": "2024-02-15T08:00:00.000Z"
+  },
+  {
+    "id": "lighting-techniques",
+    "slug": "ky-thuat-chieu-sang",
+    "title": "Kỹ Thuật Chiếu Sáng Tạo Chiều Sâu Cho Không Gian",
+    "excerpt": "Bí quyết sắp xếp hệ thống đèn để tôn vinh vẻ đẹp của từng góc phòng và tạo cảm xúc cho không gian.",
+    "content": "Ánh sáng là linh hồn của không gian nội thất. Một hệ thống chiếu sáng được thiết kế tốt...",
+    "category": "Ánh Sáng",
+    "tags": ["chiếu sáng", "đèn", "thiết kế"],
+    "coverImage": "https://images.unsplash.com/photo-1600121848594-d8644e57abab?w=800&q=80",
+    "readTime": "6",
+    "status": "published",
+    "publishedAt": "2024-02-01T08:00:00.000Z"
+  }
+]

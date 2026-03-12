@@ -1,0 +1,129 @@
+[
+  {
+    "id": "the-matrix-one-08",
+    "slug": "the-matrix-one-08",
+    "name": "The Matrix One 08",
+    "type": "Penthouse",
+    "area": "280",
+    "style": "Neo-Classic",
+    "location": "The Matrix One, Hà Nội",
+    "year": "2024",
+    "status": "published",
+    "featured": true,
+    "coverImage": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=85",
+    "images": [
+      "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200&q=85",
+      "https://images.unsplash.com/photo-1617806118233-18e1de247200?w=1200&q=85",
+      "https://images.unsplash.com/photo-1616137466211-f939a420be84?w=1200&q=85",
+      "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?w=1200&q=85",
+      "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=1200&q=85",
+      "https://images.unsplash.com/photo-1556912173-3bb406ef7e8a?w=1200&q=85"
+    ],
+    "description": "Một không gian được hòa quyện bởi sự hiện đại, mới mẻ và nét hoài cổ, được thể hiện ở mọi khía cạnh của công trình.",
+    "highlights": ["Marble Italy trắng vân vàng", "Trần thạch cao phào chỉ 3D", "Hệ đèn âm trần Philips Hue", "Cửa kính tempered 10mm"],
+    "materials": [
+      { "name": "Marble Italy Carrara", "type": "Đá" },
+      { "name": "Walnut Mỹ", "type": "Gỗ" },
+      { "name": "Vải Cashmere Bỉ", "type": "Vải" },
+      { "name": "Chrome Brushed Gold", "type": "Kim loại" }
+    ]
+  },
+  {
+    "id": "empire-city",
+    "slug": "empire-city",
+    "name": "Empire City Tower",
+    "type": "Penthouse",
+    "area": "320",
+    "style": "Modern Luxury",
+    "location": "Empire City, TP.HCM",
+    "year": "2024",
+    "status": "published",
+    "featured": true,
+    "coverImage": "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?w=1200&q=85",
+    "images": [
+      "https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?w=1200&q=85",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=85",
+      "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=1200&q=85"
+    ],
+    "description": "Penthouse tầng cao nhất với tầm nhìn toàn cảnh sông Sài Gòn. Phong cách Modern Luxury với gam màu trung tính và vật liệu cao cấp.",
+    "highlights": ["View sông Sài Gòn 180°", "Pool on terrace", "Smart home Crestron", "Wine cellar tùy chỉnh"],
+    "materials": []
+  },
+  {
+    "id": "vinhomes-central-park",
+    "slug": "vinhomes-central-park",
+    "name": "Vinhomes Central Park",
+    "type": "Căn hộ",
+    "area": "180",
+    "style": "Indochine",
+    "location": "Vinhomes Central Park, TP.HCM",
+    "year": "2023",
+    "status": "published",
+    "featured": false,
+    "coverImage": "https://images.unsplash.com/photo-1617806118233-18e1de247200?w=1200&q=85",
+    "images": [
+      "https://images.unsplash.com/photo-1617806118233-18e1de247200?w=1200&q=85",
+      "https://images.unsplash.com/photo-1616137466211-f939a420be84?w=1200&q=85"
+    ],
+    "description": "Hòa quyện tinh tế giữa kiến trúc Đông Dương cổ điển và phong cách sống hiện đại, tạo nên không gian ấm cúng và đầy cá tính.",
+    "highlights": ["Tranh đồng Việt thủ công", "Gỗ teak tự nhiên", "Đèn lồng decor", "Cây xanh trong nhà"],
+    "materials": []
+  },
+  {
+    "id": "aqua-bay-villa",
+    "slug": "aqua-bay-villa",
+    "name": "Aqua Bay Villa",
+    "type": "Villa",
+    "area": "450",
+    "style": "Tropical Modern",
+    "location": "Ecopark, Hưng Yên",
+    "year": "2023",
+    "status": "published",
+    "featured": false,
+    "coverImage": "https://images.unsplash.com/photo-1556912173-3bb406ef7e8a?w=1200&q=85",
+    "images": [
+      "https://images.unsplash.com/photo-1556912173-3bb406ef7e8a?w=1200&q=85"
+    ],
+    "description": "Villa ven hồ với kiến trúc Tropical Modern, hòa mình vào thiên nhiên xanh mát. Bể bơi tràn bờ nhìn ra hồ, phòng gym kính trong suốt.",
+    "highlights": ["Bể bơi infinity 15m", "Gym kính toàn cảnh", "Vườn nhiệt đới", "Double height living"],
+    "materials": []
+  },
+  {
+    "id": "mipec-riverside",
+    "slug": "mipec-riverside",
+    "name": "Mipec Riverside",
+    "type": "Căn hộ",
+    "area": "95",
+    "style": "Scandinavian",
+    "location": "Mipec Riverside, Hà Nội",
+    "year": "2024",
+    "status": "published",
+    "featured": false,
+    "coverImage": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200&q=85",
+    "images": [
+      "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=1200&q=85"
+    ],
+    "description": "Căn hộ phong cách Scandinavian tối giản, tràn ngập ánh sáng tự nhiên. Nội thất thanh lịch với gỗ sáng và vải len mềm mại.",
+    "highlights": ["Tối giản hóa 95%", "Full ánh sáng tự nhiên", "Gỗ ash sáng", "Bếp island mở"],
+    "materials": []
+  },
+  {
+    "id": "sunwah-pearl",
+    "slug": "sunwah-pearl",
+    "name": "Sunwah Pearl",
+    "type": "Penthouse",
+    "area": "200",
+    "style": "Contemporary",
+    "location": "Sunwah Pearl, TP.HCM",
+    "year": "2023",
+    "status": "published",
+    "featured": false,
+    "coverImage": "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=1200&q=85",
+    "images": [
+      "https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=1200&q=85"
+    ],
+    "description": "Penthouse phong cách Contemporary với view sông Sài Gòn độc đáo. Thiết kế open plan tối đa hóa không gian và ánh sáng.",
+    "highlights": ["View sông Sài Gòn", "Open plan 200m²", "Kitchen island 4m", "Master bath spa"],
+    "materials": []
+  }
+]
