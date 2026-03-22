@@ -1,9 +1,1 @@
-{
-  "/dich-vu/page": "app/dich-vu/page.js",
-  "/xu-huong/page": "app/xu-huong/page.js",
-  "/page": "app/page.js",
-  "/du-an/[slug]/page": "app/du-an/[slug]/page.js",
-  "/du-an/page": "app/du-an/page.js",
-  "/api/projects/[id]/route": "app/api/projects/[id]/route.js",
-  "/gioi-thieu/page": "app/gioi-thieu/page.js"
-}
+{}
