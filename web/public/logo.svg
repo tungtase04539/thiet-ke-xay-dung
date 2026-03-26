@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 500" fill="none">
+  <!-- 
+    AD Monogram Logo
+    - "A" is a bold italic letter slanting from upper-right to lower-left
+    - "D" is a large circle/arc on the right wrapping around
+    - Both share the interior negative space
+  -->
+  <g fill="#E8302A">
+    <!-- D: large filled circle on the right -->
+    <circle cx="310" cy="200" r="185"/>
+    
+    <!-- Cut white negative space inside D (making it a ring + the A interior) -->
+    <!-- Inner circle cut -->
+    <circle cx="310" cy="200" r="110" fill="white"/>
+    
+    <!-- A left diagonal leg - thick italic stroke going from top-right to bottom-left -->
+    <!-- This is a parallelogram shape representing the left leg of A -->
+    <polygon points="265,20 310,20 130,480 85,480" fill="#E8302A"/>
+    
+    <!-- A right diagonal leg connects to D -->
+    <polygon points="310,20 355,20 310,200 265,200" fill="#E8302A"/>
+    
+    <!-- A crossbar white cutout (negative space inside D circle + inside the letter A) -->
+    <!-- Filled back after white circle to form the A interior shape -->
+  </g>
+  
+  <!-- White cutout for inner D circle center -->
+  <circle cx="310" cy="200" r="110" fill="white"/>
+  
+  <!-- Restore the A letterform inside D -->
+  <!-- Right leg of A inside circle -->
+  <polygon points="285,85 320,85 324,220 280,220" fill="#E8302A"/>
+  
+  <!-- A crossbar cutout (white) -->
+  <rect x="195" y="210" width="145" height="30" fill="white"/>
+  
+  <!-- Bottom opening of D (gap at bottom) -->
+  <rect x="199" y="270" width="125" height="130" fill="white"/>
+  
+  <!-- Left leg of A (the big slanted one) -->
+  <polygon points="265,20 312,20 135,478 88,478" fill="#E8302A"/>
+</svg>

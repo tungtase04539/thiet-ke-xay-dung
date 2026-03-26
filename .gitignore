@@ -1,0 +1,10 @@
+node_modules/
+.next/
+.env.local
+.env
+extracted/
+web/scripts/upload-cloudinary.mjs
+*.log
+.DS_Store
+Thumbs.db
+.claude/

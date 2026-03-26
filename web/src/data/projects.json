@@ -1,0 +1,307 @@
+[
+  {
+    "id": "nha-pho-hien-dai",
+    "slug": "nha-pho-hien-dai",
+    "name": "Nhà Phố Hiện Đại",
+    "type": "Nhà phố",
+    "area": "66",
+    "style": "Hiện đại",
+    "location": "Thủy Nguyên, Hải Phòng",
+    "year": "2025",
+    "status": "published",
+    "featured": true,
+    "coverImage": "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550350/anphuoc/projects/01-nha-pho-hien-dai/e0pm2aqwlqqan1ynghr0.jpg",
+    "images": [
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550350/anphuoc/projects/01-nha-pho-hien-dai/e0pm2aqwlqqan1ynghr0.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550352/anphuoc/projects/01-nha-pho-hien-dai/t4mrlhvz5xfvmnzwjnaq.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550355/anphuoc/projects/01-nha-pho-hien-dai/k7jfmachfv6z2i9w5ow8.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550359/anphuoc/projects/01-nha-pho-hien-dai/hmw6vmgrsme4nlic7i66.jpg"
+    ],
+    "description": "Thiết kế nhà phố hiện đại 66m² cho gia đình 4 người.",
+    "highlights": [
+      "Tối ưu 2 tầng",
+      "Phòng khách + bếp + WC tầng 1",
+      "2 phòng ngủ + sân thượng tầng 2"
+    ],
+    "materials": []
+  },
+  {
+    "id": "biet-thu-tan-co-dien",
+    "slug": "biet-thu-tan-co-dien",
+    "name": "Biệt Thự Tân Cổ Điển",
+    "type": "Biệt thự",
+    "area": "150",
+    "style": "Tân cổ điển",
+    "location": "Quảng Thanh, HP",
+    "year": "2025",
+    "status": "published",
+    "featured": true,
+    "coverImage": "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550361/anphuoc/projects/02-biet-thu-tan-co-dien/i1prppmw04nk9yvlo7tj.jpg",
+    "images": [
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550361/anphuoc/projects/02-biet-thu-tan-co-dien/i1prppmw04nk9yvlo7tj.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550363/anphuoc/projects/02-biet-thu-tan-co-dien/svv0apytbdgijrjrcozw.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550367/anphuoc/projects/02-biet-thu-tan-co-dien/vjlptaebcvnsoe3iulxx.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550369/anphuoc/projects/02-biet-thu-tan-co-dien/od1svqhevty08dfe3ov7.jpg"
+    ],
+    "description": "Biệt thự tân cổ điển 2 tầng, tông trắng vàng gold.",
+    "highlights": [
+      "Cột cổ điển",
+      "Ban công sắt rèn mạ vàng",
+      "Mái ngói kiểu Nhật"
+    ],
+    "materials": []
+  },
+  {
+    "id": "tham-my-vien-tam-tam",
+    "slug": "tham-my-vien-tam-tam",
+    "name": "Thẩm Mỹ Viện Tâm Tâm",
+    "type": "Thương mại",
+    "area": "",
+    "style": "Modern Minimalist",
+    "location": "TĐC Cửa Trại, HP",
+    "year": "2025",
+    "status": "published",
+    "featured": false,
+    "coverImage": "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550371/anphuoc/projects/03-tham-my-vien-tam-tam/txaijhjx6qkadh9acxik.jpg",
+    "images": [
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550371/anphuoc/projects/03-tham-my-vien-tam-tam/txaijhjx6qkadh9acxik.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550374/anphuoc/projects/03-tham-my-vien-tam-tam/tggadyzk4lmgitj8kdmf.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550378/anphuoc/projects/03-tham-my-vien-tam-tam/xzozagpd3c4pnqt6gx0q.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550381/anphuoc/projects/03-tham-my-vien-tam-tam/kxe73zt8rr0a0lpfaazf.jpg"
+    ],
+    "description": "Thiết kế spa phong cách Soft-Arch.",
+    "highlights": [
+      "4 tầng",
+      "Soft-Arch",
+      "Đường cong mềm mại"
+    ],
+    "materials": []
+  },
+  {
+    "id": "nha-pho-tan-co-dien",
+    "slug": "nha-pho-tan-co-dien",
+    "name": "Nhà Phố Tân Cổ Điển",
+    "type": "Nhà phố",
+    "area": "",
+    "style": "Tân cổ điển",
+    "location": "TĐC Cửa Trại, HP",
+    "year": "2025",
+    "status": "published",
+    "featured": true,
+    "coverImage": "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550384/anphuoc/projects/04-nha-pho-tan-co-dien/yas5wwjfnb1oauilukzr.jpg",
+    "images": [
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550384/anphuoc/projects/04-nha-pho-tan-co-dien/yas5wwjfnb1oauilukzr.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550387/anphuoc/projects/04-nha-pho-tan-co-dien/qgui3wxdq0zrs3v130r5.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550391/anphuoc/projects/04-nha-pho-tan-co-dien/yb8muikyyxlxex6af8bh.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550394/anphuoc/projects/04-nha-pho-tan-co-dien/ss6p1kzmftbozkr4ovrj.jpg"
+    ],
+    "description": "Kiến trúc tân cổ điển, chính xác 99% bản thiết kế.",
+    "highlights": [
+      "4 phòng ngủ + thang máy",
+      "Ốp đá nâu vàng tầng 1"
+    ],
+    "materials": []
+  },
+  {
+    "id": "noi-that-hien-dai-sang-trong",
+    "slug": "noi-that-hien-dai-sang-trong",
+    "name": "Nội Thất Hiện Đại Sang Trọng",
+    "type": "Nội thất",
+    "area": "",
+    "style": "Hiện đại sang trọng",
+    "location": "Hải Phòng",
+    "year": "2025",
+    "status": "published",
+    "featured": false,
+    "coverImage": "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550398/anphuoc/projects/05-noi-that-hien-dai-sang-trong/n3ryzlesezwf9a5wt2iy.jpg",
+    "images": [
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550398/anphuoc/projects/05-noi-that-hien-dai-sang-trong/n3ryzlesezwf9a5wt2iy.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550401/anphuoc/projects/05-noi-that-hien-dai-sang-trong/ol1f2hezuwaoivaqkt1g.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550405/anphuoc/projects/05-noi-that-hien-dai-sang-trong/ozxmevk0egw2gers4r9w.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550407/anphuoc/projects/05-noi-that-hien-dai-sang-trong/nhirmimvtyzwp9r9uda0.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550409/anphuoc/projects/05-noi-that-hien-dai-sang-trong/t67wi3aojonkvvtjggqd.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550412/anphuoc/projects/05-noi-that-hien-dai-sang-trong/fxjcnwawr5mkedm2lk03.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550415/anphuoc/projects/05-noi-that-hien-dai-sang-trong/glaszh9ycftbo1vved0x.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550417/anphuoc/projects/05-noi-that-hien-dai-sang-trong/wcn3ttoyahamlsfslbbs.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550420/anphuoc/projects/05-noi-that-hien-dai-sang-trong/qnbbhmegdtbkti3sodrn.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550427/anphuoc/projects/05-noi-that-hien-dai-sang-trong/gsxs3ihrqkorhte4oiy9.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550430/anphuoc/projects/05-noi-that-hien-dai-sang-trong/jajoth9fnwdhwljrtomi.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550432/anphuoc/projects/05-noi-that-hien-dai-sang-trong/vrqvungznmjhi67rpwbs.jpg"
+    ],
+    "description": "Phòng khách liền bếp open-concept.",
+    "highlights": [
+      "Open-concept",
+      "Tông trung tính",
+      "Đảo bếp"
+    ],
+    "materials": []
+  },
+  {
+    "id": "noi-that-hien-dai-toi-gian",
+    "slug": "noi-that-hien-dai-toi-gian",
+    "name": "Nội Thất Hiện Đại Tối Giản",
+    "type": "Nội thất",
+    "area": "98",
+    "style": "Hiện đại tối giản",
+    "location": "Lê Hồng Phong, HP",
+    "year": "2025",
+    "status": "published",
+    "featured": true,
+    "coverImage": "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550434/anphuoc/projects/06-noi-that-hien-dai-toi-gian/q5z4rf9lxqcmb3ejjcp9.jpg",
+    "images": [
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550434/anphuoc/projects/06-noi-that-hien-dai-toi-gian/q5z4rf9lxqcmb3ejjcp9.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550437/anphuoc/projects/06-noi-that-hien-dai-toi-gian/d5drhujoufexahr4e7ji.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550440/anphuoc/projects/06-noi-that-hien-dai-toi-gian/zipz21c6mjtvcsfbib88.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550443/anphuoc/projects/06-noi-that-hien-dai-toi-gian/im3wlertxcudeje4xco2.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550445/anphuoc/projects/06-noi-that-hien-dai-toi-gian/tjb0t5rqcug5rtznvyjx.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550448/anphuoc/projects/06-noi-that-hien-dai-toi-gian/iwzmuey1vke7znqbmxwv.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550451/anphuoc/projects/06-noi-that-hien-dai-toi-gian/xehvl9ocikgajy8gelof.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550454/anphuoc/projects/06-noi-that-hien-dai-toi-gian/jf6go2lfutg6zmt37xsv.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550458/anphuoc/projects/06-noi-that-hien-dai-toi-gian/pjc2slzl2ot2navu7tdr.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550460/anphuoc/projects/06-noi-that-hien-dai-toi-gian/qobnfjtqji4n5dviqob2.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550463/anphuoc/projects/06-noi-that-hien-dai-toi-gian/qwe9djm2hw6xmhwfuric.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550466/anphuoc/projects/06-noi-that-hien-dai-toi-gian/sckwzc8m90a5qob2koq8.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550468/anphuoc/projects/06-noi-that-hien-dai-toi-gian/rsgtf6en2lkuwtzeufdk.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550471/anphuoc/projects/06-noi-that-hien-dai-toi-gian/ath8s4gctt7fvpsewqp0.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550474/anphuoc/projects/06-noi-that-hien-dai-toi-gian/mii39fopvmawf8rxxgh2.jpg"
+    ],
+    "description": "Nội thất tối giản 98m², ấm cúng mà không trống trải.",
+    "highlights": [
+      "98m²",
+      "Ấm cúng tối giản",
+      "Đất đô thị hẹp"
+    ],
+    "materials": []
+  },
+  {
+    "id": "noi-that-nha-pho-thuy-nguyen",
+    "slug": "noi-that-nha-pho-thuy-nguyen",
+    "name": "Nội Thất Nhà Phố Thủy Nguyên",
+    "type": "Nội thất",
+    "area": "66",
+    "style": "Hiện đại",
+    "location": "Thủy Nguyên, HP",
+    "year": "2025",
+    "status": "published",
+    "featured": false,
+    "coverImage": "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550476/anphuoc/projects/07-noi-that-nha-pho-thuy-nguyen/memh1nxgwjlmrcmkqe5o.jpg",
+    "images": [
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550476/anphuoc/projects/07-noi-that-nha-pho-thuy-nguyen/memh1nxgwjlmrcmkqe5o.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550479/anphuoc/projects/07-noi-that-nha-pho-thuy-nguyen/vsg8qwlym0foe9ti8qxk.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550482/anphuoc/projects/07-noi-that-nha-pho-thuy-nguyen/w1sy2gom1o5wpn2bvqb9.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550484/anphuoc/projects/07-noi-that-nha-pho-thuy-nguyen/eodxpeithbot4izzbqzb.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550486/anphuoc/projects/07-noi-that-nha-pho-thuy-nguyen/zeyuk5fwxphuaojxd26m.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550489/anphuoc/projects/07-noi-that-nha-pho-thuy-nguyen/rpk72qygfl1ycdjjybfg.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550491/anphuoc/projects/07-noi-that-nha-pho-thuy-nguyen/ce1xais5tdwa4di96wko.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550496/anphuoc/projects/07-noi-that-nha-pho-thuy-nguyen/gljslfgs9jkcvrsrfwue.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550498/anphuoc/projects/07-noi-that-nha-pho-thuy-nguyen/swgihvovidqoamwrhmil.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550501/anphuoc/projects/07-noi-that-nha-pho-thuy-nguyen/vsrtthap6drpyv7pcwnp.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550503/anphuoc/projects/07-noi-that-nha-pho-thuy-nguyen/vmqyym0jccid0oyykyvg.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550506/anphuoc/projects/07-noi-that-nha-pho-thuy-nguyen/egdppem401lfcw4awj9d.jpg"
+    ],
+    "description": "Nội thất nhà phố 66m², tông đen trắng.",
+    "highlights": [
+      "Không gian mở",
+      "Đen trắng tương phản",
+      "Phòng ngủ T1 cho người lớn tuổi"
+    ],
+    "materials": []
+  },
+  {
+    "id": "xay-dung-spa-tam-tam",
+    "slug": "xay-dung-spa-tam-tam",
+    "name": "Xây Dựng Spa Tâm Tâm",
+    "type": "Xây dựng",
+    "area": "100",
+    "style": "Hiện đại",
+    "location": "Thủy Nguyên, HP",
+    "year": "2025",
+    "status": "published",
+    "featured": false,
+    "coverImage": "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550508/anphuoc/projects/08-xay-dung-spa-tam-tam/doqchojdyzpbc0it3poj.jpg",
+    "images": [
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550508/anphuoc/projects/08-xay-dung-spa-tam-tam/doqchojdyzpbc0it3poj.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550511/anphuoc/projects/08-xay-dung-spa-tam-tam/f0rpq6r73lcgacrwq377.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550514/anphuoc/projects/08-xay-dung-spa-tam-tam/t7ebwvzsvtqjdpphmxgd.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550517/anphuoc/projects/08-xay-dung-spa-tam-tam/phtvxeesuxrosw51vvty.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550520/anphuoc/projects/08-xay-dung-spa-tam-tam/pbe1bhedhtfcitxsgaob.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550524/anphuoc/projects/08-xay-dung-spa-tam-tam/hj8fhru9au2zxc16b7cz.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550527/anphuoc/projects/08-xay-dung-spa-tam-tam/rze605gj1ybouovmykyi.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550530/anphuoc/projects/08-xay-dung-spa-tam-tam/bmcyi4opq9jqgipyirbd.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550533/anphuoc/projects/08-xay-dung-spa-tam-tam/ggv3c4hlxxmgo0bpxs34.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550536/anphuoc/projects/08-xay-dung-spa-tam-tam/jzey93ugpugwdvsgzj6n.jpg"
+    ],
+    "description": "Xây dựng trọn gói spa Tâm Tâm, vốn 3 tỷ.",
+    "highlights": [
+      "3 tỷ VNĐ",
+      "Khởi công 05/2025",
+      "Giám sát chặt chẽ"
+    ],
+    "materials": []
+  },
+  {
+    "id": "xay-dung-nha-pho-tan-co-dien",
+    "slug": "xay-dung-nha-pho-tan-co-dien",
+    "name": "Xây Dựng Nhà Phố Tân Cổ Điển",
+    "type": "Xây dựng",
+    "area": "",
+    "style": "Tân cổ điển",
+    "location": "TĐC Cửa Trại, Thủy Nguyên",
+    "year": "2025",
+    "status": "published",
+    "featured": true,
+    "coverImage": "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550539/anphuoc/projects/09-xay-dung-nha-pho-tan-co-dien/mmpwi6phtkfjhaohrm39.jpg",
+    "images": [
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550539/anphuoc/projects/09-xay-dung-nha-pho-tan-co-dien/mmpwi6phtkfjhaohrm39.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550541/anphuoc/projects/09-xay-dung-nha-pho-tan-co-dien/bmmrwufarhoefqawvlly.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550543/anphuoc/projects/09-xay-dung-nha-pho-tan-co-dien/vxisepdunasvm2mjcv02.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550546/anphuoc/projects/09-xay-dung-nha-pho-tan-co-dien/zyhcsx2exbq7apqlhwxl.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550553/anphuoc/projects/09-xay-dung-nha-pho-tan-co-dien/eyzxxyzb8hrca4bavdi1.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550561/anphuoc/projects/09-xay-dung-nha-pho-tan-co-dien/enrrgt5xl2dvxtcvawdh.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550564/anphuoc/projects/09-xay-dung-nha-pho-tan-co-dien/nnrrbdycaab43dtks7gf.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550567/anphuoc/projects/09-xay-dung-nha-pho-tan-co-dien/i5nhvjjpmb6o9mfsabbz.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550572/anphuoc/projects/09-xay-dung-nha-pho-tan-co-dien/e2jlkexfy0ccbcykqayr.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550575/anphuoc/projects/09-xay-dung-nha-pho-tan-co-dien/wxtvz6jhellhibmyjiv0.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550578/anphuoc/projects/09-xay-dung-nha-pho-tan-co-dien/zubxfn0m9j6bmwzc1r0b.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550582/anphuoc/projects/09-xay-dung-nha-pho-tan-co-dien/ysq78yce1vmgojdhtsxc.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550588/anphuoc/projects/09-xay-dung-nha-pho-tan-co-dien/t8gogaxpvhi77pyllafy.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550593/anphuoc/projects/09-xay-dung-nha-pho-tan-co-dien/c0hq6bczycydaqpmgatc.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550595/anphuoc/projects/09-xay-dung-nha-pho-tan-co-dien/s3j6730yzxcc4p3epbbv.jpg"
+    ],
+    "description": "Xây dựng trọn gói nhà phố tân cổ điển, 5.5 tỷ.",
+    "highlights": [
+      "5.5 tỷ VNĐ",
+      "Khởi công 03/2025",
+      "Thợ tay nghề cao phào chỉ"
+    ],
+    "materials": []
+  },
+  {
+    "id": "biet-thu-3-tang-hien-dai",
+    "slug": "biet-thu-3-tang-hien-dai",
+    "name": "Biệt Thự 3 Tầng Hiện Đại",
+    "type": "Biệt thự",
+    "area": "126",
+    "style": "Hiện đại",
+    "location": "Hải Phòng",
+    "year": "2025",
+    "status": "published",
+    "featured": false,
+    "coverImage": "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550599/anphuoc/projects/10-biet-thu-3-tang-hien-dai/t1dohzxa9m5vmo9qve5s.jpg",
+    "images": [
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550599/anphuoc/projects/10-biet-thu-3-tang-hien-dai/t1dohzxa9m5vmo9qve5s.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550601/anphuoc/projects/10-biet-thu-3-tang-hien-dai/lfv08qmonrhekzn3uvvb.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550604/anphuoc/projects/10-biet-thu-3-tang-hien-dai/ldvm97hat04zajpgvwzd.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550608/anphuoc/projects/10-biet-thu-3-tang-hien-dai/throonmwvx5cr7x3iwh4.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550610/anphuoc/projects/10-biet-thu-3-tang-hien-dai/gwzdhijeufx1m9vdbjat.jpg",
+      "https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550612/anphuoc/projects/10-biet-thu-3-tang-hien-dai/fiyvuaecaa3bgtyqz8wp.jpg"
+    ],
+    "description": "Biệt thự 3 tầng hiện đại cho Việt Kiều, 4 tỷ.",
+    "highlights": [
+      "4 tỷ VNĐ (gồm thang máy)",
+      "Ban công kính",
+      "Cây xanh đa tầng"
+    ],
+    "materials": []
+  }
+]
