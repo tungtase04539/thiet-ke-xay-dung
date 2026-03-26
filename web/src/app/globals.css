@@ -224,10 +224,76 @@ html.lenis, html.lenis body {
   border: 1px solid rgba(201, 168, 76, 0.15);
 }
 
-/* Preloader critical CSS — ensures black cover on SSR before hydration */
+/* Preloader critical CSS — prevents unstyled flash before hydration */
 .pl-wrap {
-  position: fixed !important;
-  inset: 0 !important;
-  z-index: 9999 !important;
-  background: #000 !important;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.pl-logo {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  margin-bottom: 32px;
+}
+.pl-logo-img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.pl-glitch { opacity: 0; }
+.pl-flash, .pl-streaks { opacity: 0; }
+.pl-text { text-align: center; }
+.pl-name {
+  font-family: 'Space Grotesk', 'Inter', monospace;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  color: #fff;
+  text-transform: uppercase;
+}
+.pl-sub {
+  font-family: 'Space Grotesk', 'Inter', monospace;
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  color: #888;
+  text-transform: uppercase;
+  margin-top: 8px;
+}
+.pl-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+.pl-percent {
+  text-align: right;
+  padding: 0 28px 10px 0;
+  font-family: 'Space Grotesk', monospace;
+  font-size: 10px;
+  color: rgba(255,255,255,0.3);
+}
+.pl-bar-track {
+  width: 100%;
+  height: 2px;
+  background: #111;
+}
+.pl-bar-fill {
+  height: 100%;
+  background: #E8302A;
+}
+.pl-scanline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: rgba(232,48,42,0.15);
 }
