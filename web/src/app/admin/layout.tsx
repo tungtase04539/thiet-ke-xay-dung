@@ -16,6 +16,7 @@ const NAV = [
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const [auth, setAuth] = useState<boolean | null>(null)
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [err, setErr] = useState('')
   const [sideOpen, setSideOpen] = useState(false)
@@ -26,11 +27,11 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
   const login = (e: React.FormEvent) => {
     e.preventDefault()
-    if (password === 'anphuoc2025') {
+    if (email === 'admin@admin.com' && password === 'adminadmin') {
       localStorage.setItem('anphuoc_admin', 'true')
       setAuth(true)
     } else {
-      setErr('Mật khẩu không đúng.')
+      setErr('Email hoặc mật khẩu không đúng.')
     }
   }
 
@@ -53,10 +54,16 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
         </div>
         <form onSubmit={login} className="space-y-4">
           <div>
+            <label className="text-[10px] tracking-widest text-gold uppercase block mb-2">Email</label>
+            <input type="email" value={email} onChange={e => setEmail(e.target.value)}
+              className="w-full bg-bg border border-border rounded-sm px-4 py-3 text-text text-sm focus:border-gold outline-none"
+              placeholder="admin@admin.com" autoFocus required />
+          </div>
+          <div>
             <label className="text-[10px] tracking-widest text-gold uppercase block mb-2">Mật Khẩu</label>
             <input type="password" value={password} onChange={e => setPassword(e.target.value)}
               className="w-full bg-bg border border-border rounded-sm px-4 py-3 text-text text-sm focus:border-gold outline-none"
-              placeholder="••••••••" autoFocus />
+              placeholder="••••••••" required />
           </div>
           {err && <p className="text-red-400 text-sm">{err}</p>}
           <button type="submit" className="btn-gold w-full py-3 rounded-sm text-[12px] tracking-widest uppercase">Đăng Nhập</button>
@@ -115,7 +122,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           <button className="md:hidden text-text-muted hover:text-gold" onClick={() => setSideOpen(true)}>
             <Menu size={18} />
           </button>
-          <span className="text-text-muted text-sm ml-auto">Xin chào, Admin</span>
+          <span className="text-text-muted text-sm ml-auto">Xin chào, admin@admin.com</span>
         </header>
         <main className="flex-1 p-6">{children}</main>
       </div>
