@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { ArrowLeft, Plus, Trash2, Save } from 'lucide-react'
+import ImageUpload from '@/components/ImageUpload'
 
 interface ProjectForm {
   name: string; slug: string; type: string; area: string; style: string;
@@ -144,17 +145,23 @@ export default function ProjectForm() {
 
           <div className="bg-surface border border-border rounded-sm p-6 space-y-5">
             <h2 className="text-text text-sm font-medium border-b border-border pb-3 mb-5">Ảnh & Media</h2>
+            <ImageUpload
+              label="Ảnh Bìa"
+              value={form.cover_image}
+              onChange={url => set('cover_image', url)}
+              folder="anphuoc/projects"
+            />
             <div>
-              <label className={labelClass}>Ảnh Bìa (URL)</label>
-              <input value={form.cover_image} onChange={e => set('cover_image', e.target.value)} className={inputClass} placeholder="https://..." />
-              {form.cover_image && (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img src={form.cover_image} alt="" className="mt-2 h-32 w-full object-cover rounded-sm border border-border" />
-              )}
+              <label className={labelClass}>Thêm Ảnh Vào Gallery</label>
+              <ImageUpload
+                value=""
+                onChange={url => set('images', form.images ? form.images + '\n' + url : url)}
+                folder="anphuoc/projects"
+              />
             </div>
             <div>
-              <label className={labelClass}>Danh Sách Ảnh (mỗi URL 1 dòng)</label>
-              <textarea rows={5} value={form.images} onChange={e => set('images', e.target.value)} className={textareaClass} placeholder="https://images.unsplash.com/...&#10;https://..." />
+              <label className={labelClass}>Danh Sách Ảnh Gallery (mỗi URL 1 dòng)</label>
+              <textarea rows={5} value={form.images} onChange={e => set('images', e.target.value)} className={textareaClass} placeholder="Upload ảnh ở trên hoặc dán URL..." />
             </div>
           </div>
 

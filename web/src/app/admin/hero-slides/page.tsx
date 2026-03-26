@@ -2,13 +2,14 @@
 
 import { useEffect, useState } from 'react'
 import { Plus, Trash2, Save, ArrowUp, ArrowDown, Image as ImageIcon } from 'lucide-react'
+import ImageUpload from '@/components/ImageUpload'
 
 interface Slide {
   id?: string; tag: string; title: string; subtitle: string;
-  image: string; sort_order: number; status: string;
+  image: string; mobile_image: string; sort_order: number; status: string;
 }
 
-const EMPTY: Slide = { tag: '', title: '', subtitle: '', image: '', sort_order: 0, status: 'published' }
+const EMPTY: Slide = { tag: '', title: '', subtitle: '', image: '', mobile_image: '', sort_order: 0, status: 'published' }
 
 export default function AdminHeroSlides() {
   const [slides, setSlides] = useState<Slide[]>([])
@@ -116,14 +117,18 @@ export default function AdminHeroSlides() {
               <label className={lc}>Phụ Đề</label>
               <textarea rows={2} value={editing.subtitle} onChange={e => setEditing({ ...editing, subtitle: e.target.value })} className={`${ic} resize-none`} placeholder="Mô tả ngắn..." />
             </div>
-            <div>
-              <label className={lc}>Ảnh (URL) *</label>
-              <input value={editing.image} onChange={e => setEditing({ ...editing, image: e.target.value })} className={ic} placeholder="https://res.cloudinary.com/..." />
-              {editing.image && (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img src={editing.image} alt="" className="mt-2 h-32 w-full object-cover rounded-sm border border-border" />
-              )}
-            </div>
+            <ImageUpload
+              label="Ảnh Desktop *"
+              value={editing.image}
+              onChange={url => setEditing({ ...editing, image: url })}
+              folder="anphuoc/hero-slides"
+            />
+            <ImageUpload
+              label="Ảnh Mobile (tùy chọn)"
+              value={editing.mobile_image}
+              onChange={url => setEditing({ ...editing, mobile_image: url })}
+              folder="anphuoc/hero-slides/mobile"
+            />
             <div className="grid grid-cols-2 gap-4">
               <div>
                 <label className={lc}>Thứ Tự</label>

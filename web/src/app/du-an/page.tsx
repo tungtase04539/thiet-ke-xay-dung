@@ -32,6 +32,7 @@ export default function PortfolioPage() {
   const [area, setArea] = useState('Tất Cả')
   const [loading, setLoading] = useState(true)
   const [visible, setVisible] = useState(8)
+  const [filterOpen, setFilterOpen] = useState(false)
 
   useEffect(() => {
     fetch('/api/projects?status=published')
@@ -72,50 +73,75 @@ export default function PortfolioPage() {
           </div>
         </section>
 
-        {/* Filters */}
+        {/* Filters — collapsible on mobile */}
         <section className="bg-surface border-b border-border sticky top-16 z-30">
-          <div className="max-w-7xl mx-auto px-6 py-4">
-            <div className="flex flex-wrap items-center gap-6">
+          <div className="max-w-7xl mx-auto px-6 py-3">
+            {/* Mobile: compact filter bar */}
+            <div className="flex items-center justify-between md:hidden mb-2">
+              <button onClick={() => setFilterOpen(!filterOpen)}
+                className="flex items-center gap-2 text-[11px] tracking-widest text-gold uppercase">
+                <Filter size={13} /> Bộ Lọc {hasFilters ? `(${[style,type,area].filter(v => v !== 'Tất Cả').length})` : ''}
+              </button>
+              {hasFilters && (
+                <button onClick={resetFilters} className="flex items-center gap-1 text-[11px] text-text-muted hover:text-gold">
+                  <X size={12} /> Xóa lọc
+                </button>
+              )}
+            </div>
+
+            {/* Desktop: always show / Mobile: toggle */}
+            <div className={`${filterOpen ? 'block' : 'hidden'} md:block space-y-3`}>
               {/* Style */}
               <div className="flex items-center gap-2 flex-wrap">
-                <span className="text-[10px] tracking-widest text-text-muted uppercase">Phong cách:</span>
+                <span className="text-[10px] tracking-widest text-text-muted uppercase shrink-0">Phong cách:</span>
+                <select value={style} onChange={e => setStyle(e.target.value)}
+                  className="md:hidden bg-bg border border-border rounded-sm px-3 py-1.5 text-text text-[11px] focus:border-gold outline-none">
+                  {STYLES.map(s => <option key={s}>{s}</option>)}
+                </select>
                 {STYLES.map(s => (
                   <button key={s} onClick={() => setStyle(s)}
-                    className={`text-[11px] tracking-wider px-3 py-1 rounded-sm border transition-all ${
+                    className={`hidden md:inline-block text-[11px] tracking-wider px-3 py-1 rounded-sm border transition-all ${
                       style === s ? 'border-gold bg-gold/10 text-gold' : 'border-border text-text-muted hover:border-gold/50'
                     }`}>
                     {s}
                   </button>
                 ))}
               </div>
-            </div>
-            <div className="flex flex-wrap items-center gap-6 mt-3">
-              {/* Type */}
-              <div className="flex items-center gap-2 flex-wrap">
-                <span className="text-[10px] tracking-widest text-text-muted uppercase">Loại:</span>
-                {TYPES.map(t => (
-                  <button key={t} onClick={() => setType(t)}
-                    className={`text-[11px] tracking-wider px-3 py-1 rounded-sm border transition-all ${
-                      type === t ? 'border-gold bg-gold/10 text-gold' : 'border-border text-text-muted hover:border-gold/50'
-                    }`}>
-                    {t}
-                  </button>
-                ))}
-              </div>
-              {/* Area */}
-              <div className="flex items-center gap-2 flex-wrap">
-                <span className="text-[10px] tracking-widest text-text-muted uppercase">Diện tích:</span>
-                {AREAS.map(a => (
-                  <button key={a} onClick={() => setArea(a)}
-                    className={`text-[11px] tracking-wider px-3 py-1 rounded-sm border transition-all ${
-                      area === a ? 'border-gold bg-gold/10 text-gold' : 'border-border text-text-muted hover:border-gold/50'
-                    }`}>
-                    {a}
-                  </button>
-                ))}
+              {/* Type + Area */}
+              <div className="flex flex-wrap items-center gap-3 md:gap-6">
+                <div className="flex items-center gap-2 flex-wrap">
+                  <span className="text-[10px] tracking-widest text-text-muted uppercase shrink-0">Loại:</span>
+                  <select value={type} onChange={e => setType(e.target.value)}
+                    className="md:hidden bg-bg border border-border rounded-sm px-3 py-1.5 text-text text-[11px] focus:border-gold outline-none">
+                    {TYPES.map(t => <option key={t}>{t}</option>)}
+                  </select>
+                  {TYPES.map(t => (
+                    <button key={t} onClick={() => setType(t)}
+                      className={`hidden md:inline-block text-[11px] tracking-wider px-3 py-1 rounded-sm border transition-all ${
+                        type === t ? 'border-gold bg-gold/10 text-gold' : 'border-border text-text-muted hover:border-gold/50'
+                      }`}>
+                      {t}
+                    </button>
+                  ))}
+                </div>
+                <div className="flex items-center gap-2 flex-wrap">
+                  <span className="text-[10px] tracking-widest text-text-muted uppercase shrink-0">Diện tích:</span>
+                  <select value={area} onChange={e => setArea(e.target.value)}
+                    className="md:hidden bg-bg border border-border rounded-sm px-3 py-1.5 text-text text-[11px] focus:border-gold outline-none">
+                    {AREAS.map(a => <option key={a}>{a}</option>)}
+                  </select>
+                  {AREAS.map(a => (
+                    <button key={a} onClick={() => setArea(a)}
+                      className={`hidden md:inline-block text-[11px] tracking-wider px-3 py-1 rounded-sm border transition-all ${
+                        area === a ? 'border-gold bg-gold/10 text-gold' : 'border-border text-text-muted hover:border-gold/50'
+                      }`}>
+                      {a}
+                    </button>
+                  ))}
+                </div>
               </div>
               {hasFilters && (
-                <button onClick={resetFilters} className="flex items-center gap-1 text-[11px] text-text-muted hover:text-gold transition-colors">
+                <button onClick={resetFilters} className="hidden md:flex items-center gap-1 text-[11px] text-text-muted hover:text-gold transition-colors">
                   <X size={12} /> Xóa lọc
                 </button>
               )}

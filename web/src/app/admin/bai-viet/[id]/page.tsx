@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { ArrowLeft, Save } from 'lucide-react'
+import ImageUpload from '@/components/ImageUpload'
 
 interface PostForm {
   title: string; slug: string; category: string; excerpt: string;
@@ -101,14 +102,12 @@ export default function PostFormPage() {
           </div>
 
           <div className="bg-surface border border-border rounded-sm p-6 space-y-5">
-            <div>
-              <label className={lc}>Ảnh Bìa (URL)</label>
-              <input value={form.cover_image} onChange={e => set('cover_image', e.target.value)} className={ic} placeholder="https://images.unsplash.com/..." />
-              {form.cover_image && (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img src={form.cover_image} alt="" className="mt-2 h-32 w-full object-cover rounded-sm border border-border" />
-              )}
-            </div>
+            <ImageUpload
+              label="Ảnh Bìa"
+              value={form.cover_image}
+              onChange={url => set('cover_image', url)}
+              folder="anphuoc/posts"
+            />
             <div>
               <label className={lc}>Tags (phân cách bằng dấu phẩy)</label>
               <input value={form.tags} onChange={e => set('tags', e.target.value)} className={ic} placeholder="thiết kế, xu hướng, 2024" />

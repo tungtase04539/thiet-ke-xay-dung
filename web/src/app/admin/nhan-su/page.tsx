@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react'
 import { Plus, Trash2, Save, Pencil, Users } from 'lucide-react'
+import ImageUpload from '@/components/ImageUpload'
 
 interface Member {
   id?: string; name: string; role: string; avatar: string;
@@ -109,14 +110,12 @@ export default function AdminTeam() {
               <label className={lc}>Chức Vụ</label>
               <input value={editing.role} onChange={e => setEditing({ ...editing, role: e.target.value })} className={ic} placeholder="VD: Kiến Trúc Sư Trưởng" />
             </div>
-            <div>
-              <label className={lc}>Ảnh Đại Diện (URL)</label>
-              <input value={editing.avatar} onChange={e => setEditing({ ...editing, avatar: e.target.value })} className={ic} placeholder="https://res.cloudinary.com/..." />
-              {editing.avatar && (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img src={editing.avatar} alt="" className="mt-2 w-16 h-16 rounded-full object-cover border border-border" />
-              )}
-            </div>
+            <ImageUpload
+              label="Ảnh Đại Diện"
+              value={editing.avatar}
+              onChange={url => setEditing({ ...editing, avatar: url })}
+              folder="anphuoc/team"
+            />
             <div>
               <label className={lc}>Giới Thiệu Ngắn</label>
               <textarea rows={3} value={editing.bio} onChange={e => setEditing({ ...editing, bio: e.target.value })} className={`${ic} resize-none`} placeholder="Mô tả ngắn về kinh nghiệm..." />
