@@ -127,10 +127,8 @@ export default function PortfolioPage() {
         <section className="py-16 max-w-7xl mx-auto px-6">
           {loading ? (
             <div className="text-center py-24">
-              <svg width="36" height="36" viewBox="0 0 28 28" fill="none" className="mx-auto animate-pulse mb-3">
-                <polygon points="14,1 27,8 27,20 14,27 1,20 1,8" stroke="#C9A84C" strokeWidth="1" fill="none" />
-                <polygon points="14,6 22,10.5 22,17.5 14,22 6,17.5 6,10.5" stroke="#C9A84C" strokeWidth="0.5" fill="rgba(201,168,76,0.05)" />
-              </svg>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/logo.png" alt="" className="h-10 w-auto mx-auto animate-pulse mb-3" />
               <div className="text-[11px] tracking-[0.3em] text-[#9A9488] uppercase">Đang tải...</div>
             </div>
           ) : filtered.length === 0 ? (

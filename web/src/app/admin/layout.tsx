@@ -46,9 +46,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     <div className="min-h-screen bg-bg flex items-center justify-center px-4">
       <div className="glass rounded-sm p-10 w-full max-w-sm">
         <div className="text-center mb-8">
-          <svg width="36" height="36" viewBox="0 0 28 28" fill="none" className="mx-auto mb-4">
-            <polygon points="14,1 27,8 27,20 14,27 1,20 1,8" stroke="#C9A84C" strokeWidth="1.2" fill="none"/>
-          </svg>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src="/logo.png" alt="An Phước" className="h-14 w-auto mx-auto mb-4" />
           <div className="font-display text-xl tracking-[0.2em] text-gold">AN PHƯỚC</div>
           <div className="text-[10px] tracking-[0.3em] text-text-muted mt-1">Admin Panel</div>
         </div>
