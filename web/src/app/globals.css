@@ -223,3 +223,11 @@ html.lenis, html.lenis body {
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(201, 168, 76, 0.15);
 }
+
+/* Preloader critical CSS — ensures black cover on SSR before hydration */
+.pl-wrap {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 9999 !important;
+  background: #000 !important;
+}
