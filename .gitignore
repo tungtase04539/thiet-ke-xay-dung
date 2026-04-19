@@ -8,3 +8,6 @@ web/scripts/upload-cloudinary.mjs
 .DS_Store
 Thumbs.db
 .claude/
+
+.vercel
+.env*.local
