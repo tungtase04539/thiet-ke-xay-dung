@@ -63,41 +63,6 @@ const SERVICES = [
   },
 ]
 
-const PROJECTS = [
-  {
-    img: 'https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550384/anphuoc/projects/04-nha-pho-tan-co-dien/yas5wwjfnb1oauilukzr.jpg',
-    name: 'Nhà Phố Tân Cổ Điển',
-    type: 'Thiết kế kiến trúc',
-    area: '',
-    style: 'Tân cổ điển',
-    href: '/du-an/nha-pho-tan-co-dien',
-  },
-  {
-    img: 'https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550363/anphuoc/projects/02-biet-thu-tan-co-dien/svv0apytbdgijrjrcozw.jpg',
-    name: 'Biệt Thự Tân Cổ Điển',
-    type: 'Thiết kế kiến trúc',
-    area: '150m²',
-    style: 'Tân cổ điển',
-    href: '/du-an/biet-thu-tan-co-dien',
-  },
-  {
-    img: 'https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550434/anphuoc/projects/06-noi-that-hien-dai-toi-gian/q5z4rf9lxqcmb3ejjcp9.jpg',
-    name: 'Nội Thất Hiện Đại Tối Giản',
-    type: 'Thiết kế nội thất',
-    area: '98m²',
-    style: 'Hiện đại tối giản',
-    href: '/du-an/noi-that-hien-dai-toi-gian',
-  },
-  {
-    img: 'https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550539/anphuoc/projects/09-xay-dung-nha-pho-tan-co-dien/mmpwi6phtkfjhaohrm39.jpg',
-    name: 'Xây Dựng Nhà Phố Tân Cổ Điển',
-    type: 'Xây dựng trọn gói',
-    area: '',
-    style: 'Tân cổ điển',
-    href: '/du-an/xay-dung-nha-pho-tan-co-dien',
-  },
-]
-
 const TESTIMONIALS = [
   {
     name: 'Anh Dũng',
@@ -116,33 +81,6 @@ const TESTIMONIALS = [
     project: 'Nội Thất Hiện Đại Tối Giản',
     avatar: '',
     quote: 'Thiết kế tối giản nhưng vẫn ấm cúng ở mọi góc, phá vỡ quan niệm rằng phong cách tối giản phải lạnh lẽo. Rất ưng ý!',
-  },
-]
-
-const BLOG_POSTS = [
-  {
-    img: 'https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550273/anphuoc/pages/blog/lav003eu4wb1xj9uueqg.jpg',
-    cat: 'Kiến Thức',
-    title: 'Miễn Giấy Phép Xây Dựng 2026 — Những Điều Cần Biết',
-    excerpt: 'Tổng hợp các trường hợp được miễn giấy phép xây dựng theo quy định mới nhất.',
-    time: '5 phút đọc',
-    href: '/xu-huong/mien-giay-phep-xay-dung-2026',
-  },
-  {
-    img: 'https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550275/anphuoc/pages/blog/klc0645euss0gjed2ufc.jpg',
-    cat: 'Xu Hướng',
-    title: 'Xu Hướng Thiết Kế Nhà Phố Hiện Đại 2025',
-    excerpt: 'Khám phá các phong cách kiến trúc nhà phố được ưa chuộng nhất năm 2025.',
-    time: '4 phút đọc',
-    href: '/xu-huong/xu-huong-nha-pho-2025',
-  },
-  {
-    img: 'https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550276/anphuoc/pages/blog/p7sgesz3m8t1i1x7ebwh.jpg',
-    cat: 'Kiến Thức',
-    title: 'Chi Phí Xây Nhà Trọn Gói — Bảng Giá Tham Khảo',
-    excerpt: 'Hướng dẫn ước tính chi phí xây nhà trọn gói theo từng hạng mục chi tiết.',
-    time: '6 phút đọc',
-    href: '/xu-huong/chi-phi-xay-nha',
   },
 ]
 
@@ -365,7 +303,38 @@ function ServicesSection() {
 }
 
 // ─── Projects ─────────────────────────────────────────────────────────────────
+interface FeaturedProject {
+  slug: string; name: string; type: string; area: string; style: string; cover_image: string; images?: string[]
+}
+
 function ProjectsSection() {
+  const [projects, setProjects] = useState<FeaturedProject[]>([])
+  const [loaded, setLoaded] = useState(false)
+
+  useEffect(() => {
+    // Ưu tiên featured; nếu chưa có thì lấy các dự án mới nhất
+    fetch('/api/projects?featured=true')
+      .then(r => r.json())
+      .then(async (d) => {
+        const list: FeaturedProject[] = Array.isArray(d) ? d : []
+        if (list.length < 4) {
+          const all = await fetch('/api/projects?status=published').then(r => r.json()).catch(() => [])
+          const rest = (Array.isArray(all) ? all : []).filter((p: FeaturedProject) => !list.find(x => x.slug === p.slug))
+          return [...list, ...rest].slice(0, 4)
+        }
+        return list.slice(0, 4)
+      })
+      .then(list => { setProjects(list); setLoaded(true) })
+      .catch(() => setLoaded(true))
+  }, [])
+
+  // Không render section khi chưa có dự án nào
+  if (loaded && projects.length === 0) return null
+
+  const img = (p: FeaturedProject) => p.cover_image || p.images?.[0] || ''
+  const featured = projects[0]
+  const rest = projects.slice(1, 4)
+
   return (
     <section className="py-24">
       <div className="max-w-7xl mx-auto px-6">
@@ -382,38 +351,49 @@ function ProjectsSection() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {/* Featured large */}
-          <Link href={PROJECTS[0].href} className="group relative rounded-sm overflow-hidden aspect-[4/5] md:row-span-2 img-hover-zoom reveal">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={PROJECTS[0].img} alt={PROJECTS[0].name} className="w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-t from-bg/90 via-bg/30 to-transparent" />
-            <div className="absolute bottom-0 left-0 p-8">
-              <span className="inline-block text-[10px] tracking-[0.2em] text-gold uppercase border border-gold/40 px-3 py-1 mb-3">
-                {PROJECTS[0].style}
-              </span>
-              <h3 className="font-display text-2xl text-text mb-1">{PROJECTS[0].name}</h3>
-              <p className="text-text-muted text-sm">{PROJECTS[0].type}{PROJECTS[0].area ? ` · ${PROJECTS[0].area}` : ''}</p>
-            </div>
-            <div className="absolute inset-0 border border-gold/0 group-hover:border-gold/30 transition-all duration-500 rounded-sm" />
-          </Link>
-
-          {/* 3 smaller */}
-          {PROJECTS.slice(1).map((p, i) => (
-            <Link key={p.name} href={p.href} className={`group relative rounded-sm overflow-hidden aspect-video img-hover-zoom reveal reveal-delay-${i + 1}`}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={p.img} alt={p.name} className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-bg/85 via-bg/20 to-transparent" />
-              <div className="absolute bottom-0 left-0 p-5">
-                <span className="inline-block text-[10px] tracking-[0.2em] text-gold uppercase border border-gold/40 px-2 py-0.5 mb-2">
-                  {p.style}
-                </span>
-                <h3 className="font-display text-lg text-text">{p.name}</h3>
-                <p className="text-text-muted text-xs">{p.type}{p.area ? ` · ${p.area}` : ''}</p>
-              </div>
-            </Link>
-          ))}
-        </div>
+        {!loaded ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="aspect-[4/5] md:row-span-2 bg-surface border border-border rounded-sm animate-pulse" />
+            <div className="aspect-video bg-surface border border-border rounded-sm animate-pulse" />
+            <div className="aspect-video bg-surface border border-border rounded-sm animate-pulse" />
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {featured && (
+              <Link href={`/du-an/${featured.slug}`} className="group relative rounded-sm overflow-hidden aspect-[4/5] md:row-span-2 img-hover-zoom reveal">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={img(featured)} alt={featured.name} className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-bg/90 via-bg/30 to-transparent" />
+                <div className="absolute bottom-0 left-0 p-8">
+                  {featured.style && (
+                    <span className="inline-block text-[10px] tracking-[0.2em] text-gold uppercase border border-gold/40 px-3 py-1 mb-3">
+                      {featured.style}
+                    </span>
+                  )}
+                  <h3 className="font-display text-2xl text-text mb-1">{featured.name}</h3>
+                  <p className="text-text-muted text-sm">{featured.type}{featured.area ? ` · ${featured.area}` : ''}</p>
+                </div>
+                <div className="absolute inset-0 border border-gold/0 group-hover:border-gold/30 transition-all duration-500 rounded-sm" />
+              </Link>
+            )}
+            {rest.map((p, i) => (
+              <Link key={p.slug} href={`/du-an/${p.slug}`} className={`group relative rounded-sm overflow-hidden aspect-video img-hover-zoom reveal reveal-delay-${i + 1}`}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={img(p)} alt={p.name} className="w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-bg/85 via-bg/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 p-5">
+                  {p.style && (
+                    <span className="inline-block text-[10px] tracking-[0.2em] text-gold uppercase border border-gold/40 px-2 py-0.5 mb-2">
+                      {p.style}
+                    </span>
+                  )}
+                  <h3 className="font-display text-lg text-text">{p.name}</h3>
+                  <p className="text-text-muted text-xs">{p.type}{p.area ? ` · ${p.area}` : ''}</p>
+                </div>
+              </Link>
+            ))}
+          </div>
+        )}
 
         <div className="text-center mt-10 md:hidden">
           <Link href="/du-an" className="btn-outline text-[12px] tracking-[0.1em] uppercase px-8 py-3 rounded-sm inline-flex items-center gap-2">
@@ -493,7 +473,25 @@ function TestimonialsSection() {
 }
 
 // ─── Blog Teaser ──────────────────────────────────────────────────────────────
+interface BlogPost {
+  slug: string; title: string; category: string; excerpt: string; cover_image: string; read_time: string
+}
+
 function BlogSection() {
+  const [posts, setPosts] = useState<BlogPost[]>([])
+  const [loaded, setLoaded] = useState(false)
+
+  useEffect(() => {
+    fetch('/api/posts?status=published')
+      .then(r => r.json())
+      .then(d => { setPosts(Array.isArray(d) ? d.slice(0, 3) : []); setLoaded(true) })
+      .catch(() => setLoaded(true))
+  }, [])
+
+  if (loaded && posts.length === 0) return null
+
+  const [featured, ...rest] = posts
+
   return (
     <section className="py-24 bg-surface">
       <div className="max-w-7xl mx-auto px-6">
@@ -510,41 +508,55 @@ function BlogSection() {
           </Link>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 reveal">
-          {/* Featured */}
-          <Link href={BLOG_POSTS[0].href} className="group lg:col-span-2 relative rounded-sm overflow-hidden aspect-[16/9] img-hover-zoom">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src={BLOG_POSTS[0].img} alt="" className="w-full h-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-t from-bg/95 via-bg/40 to-transparent" />
-            <div className="absolute bottom-0 left-0 p-8">
-              <span className="inline-block text-[10px] tracking-widest text-gold uppercase border border-gold/40 px-3 py-1 mb-3">
-                {BLOG_POSTS[0].cat}
-              </span>
-              <h3 className="font-display text-xl text-text mb-2">{BLOG_POSTS[0].title}</h3>
-              <p className="text-text-muted text-sm line-clamp-2 mb-3">{BLOG_POSTS[0].excerpt}</p>
-              <span className="text-[11px] tracking-widest text-text-muted">{BLOG_POSTS[0].time}</span>
+        {!loaded ? (
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div className="aspect-[16/9] lg:col-span-2 bg-bg border border-border rounded-sm animate-pulse" />
+            <div className="flex flex-col gap-6">
+              <div className="h-20 bg-bg border border-border rounded-sm animate-pulse" />
+              <div className="h-20 bg-bg border border-border rounded-sm animate-pulse" />
             </div>
-          </Link>
-
-          {/* Side posts */}
-          <div className="flex flex-col gap-6">
-            {BLOG_POSTS.slice(1).map((post) => (
-              <Link key={post.title} href={post.href} className="group flex gap-4 items-start">
-                <div className="img-hover-zoom w-28 h-20 rounded-sm overflow-hidden shrink-0">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img src={post.img} alt="" className="w-full h-full object-cover" />
-                </div>
-                <div>
-                  <span className="text-[10px] tracking-widest text-gold uppercase">{post.cat}</span>
-                  <h3 className="text-sm text-text mt-1 mb-1 group-hover:text-gold transition-colors line-clamp-2">
-                    {post.title}
-                  </h3>
-                  <span className="text-[11px] text-text-muted">{post.time}</span>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 reveal">
+            {featured && (
+              <Link href={`/xu-huong/${featured.slug}`} className="group lg:col-span-2 relative rounded-sm overflow-hidden aspect-[16/9] img-hover-zoom">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                {featured.cover_image && <img src={featured.cover_image} alt="" className="w-full h-full object-cover" />}
+                <div className="absolute inset-0 bg-gradient-to-t from-bg/95 via-bg/40 to-transparent" />
+                <div className="absolute bottom-0 left-0 p-8">
+                  {featured.category && (
+                    <span className="inline-block text-[10px] tracking-widest text-gold uppercase border border-gold/40 px-3 py-1 mb-3">
+                      {featured.category}
+                    </span>
+                  )}
+                  <h3 className="font-display text-xl text-text mb-2">{featured.title}</h3>
+                  {featured.excerpt && <p className="text-text-muted text-sm line-clamp-2 mb-3">{featured.excerpt}</p>}
+                  {featured.read_time && <span className="text-[11px] tracking-widest text-text-muted">{featured.read_time} phút đọc</span>}
                 </div>
               </Link>
-            ))}
+            )}
+
+            {rest.length > 0 && (
+              <div className="flex flex-col gap-6">
+                {rest.map((post) => (
+                  <Link key={post.slug} href={`/xu-huong/${post.slug}`} className="group flex gap-4 items-start">
+                    <div className="img-hover-zoom w-28 h-20 rounded-sm overflow-hidden shrink-0 bg-bg border border-border">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      {post.cover_image && <img src={post.cover_image} alt="" className="w-full h-full object-cover" />}
+                    </div>
+                    <div>
+                      {post.category && <span className="text-[10px] tracking-widest text-gold uppercase">{post.category}</span>}
+                      <h3 className="text-sm text-text mt-1 mb-1 group-hover:text-gold transition-colors line-clamp-2">
+                        {post.title}
+                      </h3>
+                      {post.read_time && <span className="text-[11px] text-text-muted">{post.read_time} phút đọc</span>}
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            )}
           </div>
-        </div>
+        )}
       </div>
     </section>
   )
