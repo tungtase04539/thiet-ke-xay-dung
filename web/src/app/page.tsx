@@ -33,8 +33,8 @@ const HERO_SLIDES: { img: string; mobileImg: string; tag: string; title: string;
 ]
 
 const STATS = [
-  { value: '10+', label: 'Dự Án' },
-  { value: '5+', label: 'Năm Kinh Nghiệm' },
+  { value: '50+', label: 'Dự Án' },
+  { value: '10+', label: 'Năm Kinh Nghiệm' },
   { value: '100%', label: 'Khách Hài Lòng' },
   { value: '99%', label: 'Đúng Bản Thiết Kế' },
 ]
@@ -579,8 +579,8 @@ function CTASection() {
           <Link href="/lien-he" className="btn-gold text-[13px] tracking-[0.12em] uppercase px-10 py-4 rounded-sm inline-flex items-center justify-center gap-2">
             Tư Vấn Ngay <ArrowRight size={16} />
           </Link>
-          <a href="tel:0922229787" className="btn-outline text-[13px] tracking-[0.12em] uppercase px-10 py-4 rounded-sm inline-flex items-center justify-center gap-2">
-            Gọi: 0922 22 9787
+          <a href="tel:0899289589" className="btn-outline text-[13px] tracking-[0.12em] uppercase px-10 py-4 rounded-sm inline-flex items-center justify-center gap-2">
+            Gọi: 0899 289 589
           </a>
         </div>
       </div>

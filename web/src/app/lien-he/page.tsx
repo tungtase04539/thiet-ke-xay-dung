@@ -66,7 +66,7 @@ export default function ContactPage() {
                   </li>
                   <li className="flex items-center gap-3 text-sm">
                     <Phone size={16} className="text-gold shrink-0" />
-                    <a href="tel:0922229787" className="text-text hover:text-gold transition-colors font-medium">0922 22 9787</a>
+                    <a href="tel:0899289589" className="text-text hover:text-gold transition-colors font-medium">0899 289 589</a>
                   </li>
                   <li className="flex items-center gap-3 text-sm">
                     <Mail size={16} className="text-gold shrink-0" />
@@ -81,11 +81,11 @@ export default function ContactPage() {
 
               {/* Quick actions */}
               <div className="space-y-3">
-                <a href="tel:0922229787"
+                <a href="tel:0899289589"
                   className="gold-border w-full py-3 px-5 rounded-sm flex items-center gap-3 text-sm text-text hover:bg-gold/10 transition-colors">
-                  <Phone size={16} className="text-gold" /> Gọi Ngay: 0922 22 9787
+                  <Phone size={16} className="text-gold" /> Gọi Ngay: 0899 289 589
                 </a>
-                <a href="https://zalo.me/0922229787" target="_blank" rel="noopener noreferrer"
+                <a href="https://zalo.me/0899289589" target="_blank" rel="noopener noreferrer"
                   className="w-full py-3 px-5 rounded-sm flex items-center gap-3 text-sm text-text border border-[#0068FF]/40 hover:bg-[#0068FF]/10 transition-colors">
                   <span className="w-4 h-4 bg-[#0068FF] rounded-full text-[8px] flex items-center justify-center text-white font-bold">Z</span>
                   Chat Zalo (phản hồi trong 5 phút)

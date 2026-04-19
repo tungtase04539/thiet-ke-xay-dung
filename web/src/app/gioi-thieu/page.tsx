@@ -23,8 +23,8 @@ const VALUES = [
 ]
 
 const STATS = [
-  { value: '10+', label: 'Dự Án Hoàn Thành' },
-  { value: '5+', label: 'Năm Kinh Nghiệm' },
+  { value: '50+', label: 'Dự Án Hoàn Thành' },
+  { value: '10+', label: 'Năm Kinh Nghiệm' },
   { value: '100%', label: 'Khách Hài Lòng' },
   { value: '99%', label: 'Chính Xác Bản Thiết Kế' },
 ]

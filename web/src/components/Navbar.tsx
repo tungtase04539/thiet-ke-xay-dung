@@ -63,9 +63,9 @@ export default function Navbar() {
 
           {/* CTA */}
           <div className="hidden lg:flex items-center gap-4">
-            <a href="tel:0922229787" className="flex items-center gap-2 text-text-muted hover:text-gold transition-colors">
+            <a href="tel:0899289589" className="flex items-center gap-2 text-text-muted hover:text-gold transition-colors">
               <Phone size={14} />
-              <span className="text-[12px] tracking-wider">0922 22 9787</span>
+              <span className="text-[12px] tracking-wider">0899 289 589</span>
             </a>
             <Link
               href="/lien-he"
@@ -131,8 +131,8 @@ export default function Navbar() {
             >
               Tư Vấn Miễn Phí
             </Link>
-            <a href="tel:0922229787" className="block text-center text-text-muted text-sm tracking-wider hover:text-gold transition-colors">
-              0922 22 9787
+            <a href="tel:0899289589" className="block text-center text-text-muted text-sm tracking-wider hover:text-gold transition-colors">
+              0899 289 589
             </a>
           </div>
         </div>
@@ -141,7 +141,7 @@ export default function Navbar() {
       {/* Floating Zalo & Phone */}
       <div className="fixed bottom-6 right-6 z-40 flex flex-col gap-3">
         <a
-          href="https://zalo.me/0922229787"
+          href="https://zalo.me/0899289589"
           target="_blank"
           rel="noopener noreferrer"
           className="w-12 h-12 rounded-full bg-[#0068FF] flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
@@ -153,7 +153,7 @@ export default function Navbar() {
           </svg>
         </a>
         <a
-          href="tel:0922229787"
+          href="tel:0899289589"
           className="w-12 h-12 rounded-full bg-gold flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
           title="Gọi ngay"
         >
