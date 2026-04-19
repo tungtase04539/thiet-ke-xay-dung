@@ -18,14 +18,10 @@ export async function POST(req: NextRequest) {
   const record: Record<string, unknown> = { ...rest, space_type: spaceType, status: 'new' }
   BLOCKED.forEach(k => delete record[k])
 
-  const { data, error } = await supabase
-    .from('contact_leads')
-    .insert([record])
-    .select('id')
-    .single()
-
+  // anon chỉ có INSERT, không có SELECT → không dùng .select().single().
+  const { error } = await supabase.from('contact_leads').insert([record])
   if (error) return NextResponse.json({ error: error.message }, { status: 500 })
-  return NextResponse.json({ success: true, id: data.id }, { status: 201 })
+  return NextResponse.json({ success: true }, { status: 201 })
 }
 
 export async function GET(req: NextRequest) {

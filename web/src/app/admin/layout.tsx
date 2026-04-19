@@ -1,9 +1,10 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useMemo } from 'react'
 import Link from 'next/link'
 import { LayoutDashboard, FolderOpen, FileText, MessageSquare, LogOut, Menu, X, ExternalLink, Image as ImageIcon, Users } from 'lucide-react'
 import PageLoader from '@/components/PageLoader'
+import { supabaseBrowser } from '@/lib/supabase-browser'
 
 const NAV = [
   { icon: LayoutDashboard, label: 'Tổng Quan', href: '/admin' },
@@ -15,34 +16,38 @@ const NAV = [
 ]
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
-  const [auth, setAuth] = useState<boolean | null>(null)
+  const supabase = useMemo(() => supabaseBrowser(), [])
+  const [userEmail, setUserEmail] = useState<string | null | undefined>(undefined)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [err, setErr] = useState('')
+  const [loading, setLoading] = useState(false)
   const [sideOpen, setSideOpen] = useState(false)
 
   useEffect(() => {
-    setAuth(localStorage.getItem('anphuoc_admin') === 'true')
-  }, [])
+    supabase.auth.getUser().then(({ data }) => setUserEmail(data.user?.email ?? null))
+    const { data: sub } = supabase.auth.onAuthStateChange((_e, session) => {
+      setUserEmail(session?.user?.email ?? null)
+    })
+    return () => sub.subscription.unsubscribe()
+  }, [supabase])
 
-  const login = (e: React.FormEvent) => {
+  const login = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (email === 'admin@admin.com' && password === 'adminadmin') {
-      localStorage.setItem('anphuoc_admin', 'true')
-      setAuth(true)
-    } else {
-      setErr('Email hoặc mật khẩu không đúng.')
-    }
+    setErr('')
+    setLoading(true)
+    const { error } = await supabase.auth.signInWithPassword({ email, password })
+    setLoading(false)
+    if (error) setErr('Email hoặc mật khẩu không đúng.')
   }
 
-  const logout = () => {
-    localStorage.removeItem('anphuoc_admin')
-    setAuth(false)
+  const logout = async () => {
+    await supabase.auth.signOut()
   }
 
-  if (auth === null) return <PageLoader />
+  if (userEmail === undefined) return <PageLoader />
 
-  if (!auth) return (
+  if (!userEmail) return (
     <div className="min-h-screen bg-bg flex items-center justify-center px-4">
       <div className="glass rounded-sm p-10 w-full max-w-sm">
         <div className="text-center mb-8">
@@ -65,7 +70,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
               placeholder="••••••••" required />
           </div>
           {err && <p className="text-red-400 text-sm">{err}</p>}
-          <button type="submit" className="btn-gold w-full py-3 rounded-sm text-[12px] tracking-widest uppercase">Đăng Nhập</button>
+          <button type="submit" disabled={loading} className="btn-gold w-full py-3 rounded-sm text-[12px] tracking-widest uppercase disabled:opacity-60">
+            {loading ? 'Đang đăng nhập…' : 'Đăng Nhập'}
+          </button>
         </form>
         <p className="text-center text-text-muted text-xs mt-6">An Phước Design & Construction</p>
       </div>
@@ -121,7 +128,7 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           <button className="md:hidden text-text-muted hover:text-gold" onClick={() => setSideOpen(true)}>
             <Menu size={18} />
           </button>
-          <span className="text-text-muted text-sm ml-auto">Xin chào, admin@admin.com</span>
+          <span className="text-text-muted text-sm ml-auto">Xin chào, {userEmail}</span>
         </header>
         <main className="flex-1 p-6">{children}</main>
       </div>
