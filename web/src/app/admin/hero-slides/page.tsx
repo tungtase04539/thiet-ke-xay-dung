@@ -87,7 +87,7 @@ export default function AdminHeroSlides() {
               )}
               <div className="flex-1 min-w-0">
                 <div className="text-gold text-[10px] tracking-widest uppercase">{s.tag || 'Slide'}</div>
-                <div className="text-text text-sm font-medium truncate">{s.title}</div>
+                <div className="text-text text-sm font-medium whitespace-pre-line line-clamp-2">{s.title}</div>
                 <div className="text-text-muted text-xs truncate">{s.subtitle}</div>
               </div>
               <div className="flex flex-col gap-1 shrink-0">
@@ -111,7 +111,14 @@ export default function AdminHeroSlides() {
             </div>
             <div>
               <label className={lc}>Tiêu Đề *</label>
-              <input value={editing.title} onChange={e => setEditing({ ...editing, title: e.target.value })} className={ic} placeholder="VD: Biến Ý Tưởng\nThành Hiện Thực" />
+              <textarea
+                rows={2}
+                value={editing.title}
+                onChange={e => setEditing({ ...editing, title: e.target.value })}
+                className={`${ic} resize-none`}
+                placeholder={"Biến Ý Tưởng\nThành Hiện Thực"}
+              />
+              <p className="text-[10px] text-text-muted mt-1">Nhấn Enter để xuống dòng. Trang chủ sẽ hiển thị đúng như bạn gõ.</p>
             </div>
             <div>
               <label className={lc}>Phụ Đề</label>
