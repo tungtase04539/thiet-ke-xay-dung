@@ -8,13 +8,16 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
 // ─── Data ────────────────────────────────────────────────────────────────────
-const HERO_SLIDES: { img: string; mobileImg: string; tag: string; title: string; sub: string }[] = [
+type HeroSlide = { img: string; mobileImg: string; tag: string; title: string; sub: string; titleSize: number }
+
+const HERO_SLIDES: HeroSlide[] = [
   {
     img: 'https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550344/anphuoc/pages/trang-chu/a8tgzsszcd5l38esivrr.jpg',
     mobileImg: '',
     tag: 'Thiết Kế Kiến Trúc',
     title: 'Biến Ý Tưởng\nThành Hiện Thực',
     sub: 'An Phước Design & Construction — Thiết kế kiến trúc & xây dựng trọn gói tại Hải Phòng. Chất lượng vượt trội, tiến độ đúng hẹn.',
+    titleSize: 100,
   },
   {
     img: 'https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550361/anphuoc/projects/02-biet-thu-tan-co-dien/i1prppmw04nk9yvlo7tj.jpg',
@@ -22,6 +25,7 @@ const HERO_SLIDES: { img: string; mobileImg: string; tag: string; title: string;
     tag: 'Xây Dựng Trọn Gói',
     title: 'Chất Lượng\nLà Uy Tín',
     sub: 'Đội thợ tay nghề cao, giám sát chặt chẽ. Công trình hoàn thiện đạt 99% so với bản thiết kế.',
+    titleSize: 100,
   },
   {
     img: 'https://res.cloudinary.com/dmjrk2fov/image/upload/v1774550398/anphuoc/projects/05-noi-that-hien-dai-sang-trong/n3ryzlesezwf9a5wt2iy.jpg',
@@ -29,6 +33,7 @@ const HERO_SLIDES: { img: string; mobileImg: string; tag: string; title: string;
     tag: 'Nội Thất Hiện Đại',
     title: 'Không Gian\nĐáng Sống',
     sub: 'Thiết kế nội thất hiện đại, tối giản. Biến diện tích nhỏ thành không gian sống lý tưởng.',
+    titleSize: 100,
   },
 ]
 
@@ -96,8 +101,9 @@ function HeroSection() {
       .then(r => r.json())
       .then(d => {
         if (Array.isArray(d) && d.length > 0) {
-          setSlides(d.map((s: { tag?: string; title: string; subtitle?: string; image: string; mobile_image?: string }) => ({
+          setSlides(d.map((s: { tag?: string; title: string; subtitle?: string; image: string; mobile_image?: string; title_size?: number }) => ({
             img: s.image, mobileImg: s.mobile_image || '', tag: s.tag || '', title: s.title, sub: s.subtitle || '',
+            titleSize: typeof s.title_size === 'number' ? s.title_size : 100,
           })))
         }
       })
@@ -152,7 +158,10 @@ function HeroSection() {
             <span className="w-8 h-px bg-gold" />
             <span className="text-[11px] tracking-[0.3em] text-gold uppercase">{slide.tag}</span>
           </div>
-          <h1 className="font-display font-light text-[clamp(52px,8vw,110px)] leading-[1.15] text-text mb-6 whitespace-pre-line">
+          <h1
+            className="font-display font-light leading-[1.15] text-text mb-6 whitespace-pre-line"
+            style={{ fontSize: `clamp(${52 * (slide.titleSize ?? 100) / 100}px, ${8 * (slide.titleSize ?? 100) / 100}vw, ${110 * (slide.titleSize ?? 100) / 100}px)` }}
+          >
             {slide.title}
           </h1>
           <p className="text-text-muted text-[17px] leading-relaxed max-w-lg mb-10">

@@ -42,10 +42,10 @@ export default function Preloader() {
 
       {/* Progress bar */}
       <div className="pl-progress">
+        <div className="pl-percent">{String(progress).padStart(2, '0')}</div>
         <div className="pl-bar-track">
           <div className="pl-bar-fill" style={{ width: `${progress}%` }} />
         </div>
-        <div className="pl-percent">{String(progress).padStart(2, '0')}</div>
       </div>
 
       <style jsx>{`
@@ -110,9 +110,9 @@ export default function Preloader() {
         /* ─── Progress ─── */
         .pl-progress {
           position: absolute;
-          bottom: 48px; left: 50%;
-          transform: translateX(-50%);
-          display: flex; align-items: center; gap: 14px;
+          bottom: 48px; left: 0; right: 0;
+          display: flex; flex-direction: column;
+          align-items: center; gap: 10px;
           opacity: 0;
           animation: plTextIn 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.7s forwards;
         }
@@ -130,8 +130,7 @@ export default function Preloader() {
           font-family: 'Space Grotesk', monospace;
           font-size: 10px;
           color: rgba(255,255,255,0.35);
-          letter-spacing: 0.1em;
-          min-width: 18px;
+          letter-spacing: 0.15em;
         }
 
         @media (prefers-reduced-motion: reduce) {

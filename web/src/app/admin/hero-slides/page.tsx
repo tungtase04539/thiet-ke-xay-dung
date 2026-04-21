@@ -7,9 +7,10 @@ import ImageUpload from '@/components/ImageUpload'
 interface Slide {
   id?: string; tag: string; title: string; subtitle: string;
   image: string; mobile_image: string; sort_order: number; status: string;
+  title_size: number;
 }
 
-const EMPTY: Slide = { tag: '', title: '', subtitle: '', image: '', mobile_image: '', sort_order: 0, status: 'published' }
+const EMPTY: Slide = { tag: '', title: '', subtitle: '', image: '', mobile_image: '', sort_order: 0, status: 'published', title_size: 100 }
 
 export default function AdminHeroSlides() {
   const [slides, setSlides] = useState<Slide[]>([])
@@ -119,6 +120,24 @@ export default function AdminHeroSlides() {
                 placeholder={"Biến Ý Tưởng\nThành Hiện Thực"}
               />
               <p className="text-[10px] text-text-muted mt-1">Nhấn Enter để xuống dòng. Trang chủ sẽ hiển thị đúng như bạn gõ.</p>
+            </div>
+            <div>
+              <div className="flex items-center justify-between mb-1.5">
+                <label className={lc + ' mb-0'}>Cỡ Chữ Tiêu Đề</label>
+                <span className="text-[10px] text-text-muted tabular-nums">{editing.title_size ?? 100}%</span>
+              </div>
+              <input
+                type="range"
+                min={60}
+                max={160}
+                step={5}
+                value={editing.title_size ?? 100}
+                onChange={e => setEditing({ ...editing, title_size: +e.target.value })}
+                className="w-full accent-gold"
+              />
+              <div className="flex justify-between text-[9px] text-text-muted mt-1">
+                <span>Nhỏ</span><span>Mặc định</span><span>Rất to</span>
+              </div>
             </div>
             <div>
               <label className={lc}>Phụ Đề</label>
