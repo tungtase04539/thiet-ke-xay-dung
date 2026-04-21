@@ -603,20 +603,28 @@ function CTASection() {
 // ─── Scroll Reveal Hook ───────────────────────────────────────────────────────
 function useScrollReveal() {
   useEffect(() => {
-    const els = document.querySelectorAll('.reveal')
-    const observer = new IntersectionObserver(
+    const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
           if (e.isIntersecting) {
             e.target.classList.add('visible')
-            observer.unobserve(e.target)
+            io.unobserve(e.target)
           }
         })
       },
       { threshold: 0.1, rootMargin: '0px 0px -60px 0px' }
     )
-    els.forEach((el) => observer.observe(el))
-    return () => observer.disconnect()
+
+    const observeAll = () => {
+      document.querySelectorAll('.reveal:not(.visible)').forEach((el) => io.observe(el))
+    }
+
+    // Observe initial DOM, rồi re-observe mỗi khi có node mới (dynamic fetch).
+    observeAll()
+    const mo = new MutationObserver(observeAll)
+    mo.observe(document.body, { childList: true, subtree: true })
+
+    return () => { io.disconnect(); mo.disconnect() }
   }, [])
 }
 
