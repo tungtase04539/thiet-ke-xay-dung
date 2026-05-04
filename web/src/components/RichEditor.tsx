@@ -64,7 +64,7 @@ export default function RichEditor({ value, onChange, placeholder = 'Viết nộ
   useEffect(() => {
     if (!editor) return
     if (editor.getHTML() !== value) {
-      editor.commands.setContent(value, false)
+      editor.commands.setContent(value, { emitUpdate: false })
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [value === '' ? value : null, editor])
