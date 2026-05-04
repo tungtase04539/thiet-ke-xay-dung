@@ -1,7 +1,7 @@
 'use client'
 
 import { useEffect, useCallback, useRef } from 'react'
-import { useEditor, EditorContent, BubbleMenu } from '@tiptap/react'
+import { useEditor, EditorContent } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
 import ImageExtension from '@tiptap/extension-image'
 import LinkExtension from '@tiptap/extension-link'
@@ -144,15 +144,6 @@ export default function RichEditor({ value, onChange, placeholder = 'Viết nộ
 
         {uploading && <span className="text-[10px] text-gold tracking-wider ml-1">Đang tải ảnh...</span>}
       </div>
-
-      {/* Bubble Menu (inline toolbar on selection) */}
-      <BubbleMenu editor={editor} tippyOptions={{ duration: 100 }}
-        className="flex items-center gap-0.5 bg-surface border border-border rounded-sm px-1 py-0.5 shadow-lg">
-        <button type="button" onClick={() => editor.chain().focus().toggleBold().run()} className={btn(editor.isActive('bold'))}><Bold size={12} /></button>
-        <button type="button" onClick={() => editor.chain().focus().toggleItalic().run()} className={btn(editor.isActive('italic'))}><Italic size={12} /></button>
-        <button type="button" onClick={() => editor.chain().focus().toggleUnderline().run()} className={btn(editor.isActive('underline'))}><Underline size={12} /></button>
-        <button type="button" onClick={setLink} className={btn(editor.isActive('link'))}><Link size={12} /></button>
-      </BubbleMenu>
 
       {/* Editor content */}
       <EditorContent
