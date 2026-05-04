@@ -1,12 +1,12 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
-import { ArrowLeft, Save, Upload, Loader2, Link as LinkIcon } from 'lucide-react'
+import { ArrowLeft, Save } from 'lucide-react'
 import ImageUpload from '@/components/ImageUpload'
+import RichEditor from '@/components/RichEditor'
 import { POST_CATEGORIES, normalizePostCategory } from '@/lib/categories'
-import { uploadImageFile } from '@/lib/client-image-upload'
 
 interface PostForm {
   title: string; slug: string; category: string; excerpt: string;
@@ -24,50 +24,7 @@ export default function PostFormPage() {
   const [form, setForm] = useState<PostForm>(EMPTY)
   const [saving, setSaving] = useState(false)
   const [msg, setMsg] = useState('')
-  const [contentUploading, setContentUploading] = useState(false)
-  const [contentUploadErr, setContentUploadErr] = useState('')
-  const contentRef = useRef<HTMLTextAreaElement>(null)
-  const contentFileRef = useRef<HTMLInputElement>(null)
 
-  const insertAtCursor = (snippet: string) => {
-    const ta = contentRef.current
-    setForm((f) => {
-      if (!ta) return { ...f, content: f.content + snippet }
-      const start = ta.selectionStart ?? ta.value.length
-      const end = ta.selectionEnd ?? ta.value.length
-      const next = ta.value.slice(0, start) + snippet + ta.value.slice(end)
-      requestAnimationFrame(() => {
-        ta.focus()
-        const pos = start + snippet.length
-        ta.setSelectionRange(pos, pos)
-      })
-      return { ...f, content: next }
-    })
-  }
-
-  const insertImageByUrl = () => {
-    const url = window.prompt('Nhập URL ảnh (https://...)')?.trim()
-    if (!url) return
-    const alt = window.prompt('Mô tả ảnh (không bắt buộc)')?.trim() ?? ''
-    insertAtCursor(`\n\n![${alt}](${url})\n\n`)
-  }
-
-  const handleContentImage = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0]
-    if (contentFileRef.current) contentFileRef.current.value = ''
-    if (!file) return
-    setContentUploading(true)
-    setContentUploadErr('')
-    try {
-      const url = await uploadImageFile(file, 'anphuoc/posts/content')
-      const alt = file.name.replace(/\.[^.]+$/, '')
-      insertAtCursor(`\n\n![${alt}](${url})\n\n`)
-    } catch (err) {
-      setContentUploadErr(err instanceof Error ? err.message : 'Upload lỗi')
-    } finally {
-      setContentUploading(false)
-    }
-  }
 
   useEffect(() => {
     if (!isNew) {
@@ -144,25 +101,13 @@ export default function PostFormPage() {
               <textarea rows={2} value={form.excerpt} onChange={e => set('excerpt', e.target.value)} className={`${ic} resize-none`} placeholder="Mô tả ngắn hiển thị ở trang danh sách..." />
             </div>
             <div>
-              <div className="flex items-center justify-between flex-wrap gap-2 mb-1.5">
-                <label className={`${lc} !mb-0`}>Nội Dung</label>
-                <div className="flex items-center gap-2">
-                  <button type="button" onClick={() => contentFileRef.current?.click()} disabled={contentUploading}
-                    className="flex items-center gap-1.5 text-[10px] tracking-widest uppercase text-gold border border-gold/40 hover:bg-gold/10 px-3 py-1 rounded-sm transition-colors disabled:opacity-50">
-                    {contentUploading ? <Loader2 size={12} className="animate-spin" /> : <Upload size={12} />}
-                    {contentUploading ? 'Đang tải...' : 'Chèn ảnh'}
-                  </button>
-                  <button type="button" onClick={insertImageByUrl}
-                    className="flex items-center gap-1.5 text-[10px] tracking-widest uppercase text-text-muted border border-border hover:border-gold/40 hover:text-gold px-3 py-1 rounded-sm transition-colors">
-                    <LinkIcon size={12} /> URL ảnh
-                  </button>
-                  <input ref={contentFileRef} type="file" accept="image/*" onChange={handleContentImage} className="hidden" />
-                </div>
-              </div>
-              <textarea ref={contentRef} rows={14} value={form.content} onChange={e => set('content', e.target.value)} className={`${ic} resize-y font-mono text-[13px]`}
-                placeholder="Nội dung chi tiết... Đặt con trỏ rồi bấm Chèn ảnh để upload vào giữa bài. Cú pháp: ![mô tả](url)" />
-              {contentUploadErr && <p className="text-red-400 text-xs mt-1">{contentUploadErr}</p>}
-              <p className="text-text-muted text-[11px] mt-1">Ảnh chèn sẽ hiển thị đúng trên trang bài viết (định dạng Markdown ảnh).</p>
+              <label className={lc}>Nội Dung</label>
+              <RichEditor
+                value={form.content}
+                onChange={html => set('content', html)}
+                placeholder="Viết nội dung bài viết... Paste ảnh trực tiếp hoặc dùng nút chèn ảnh trên toolbar."
+              />
+              <p className="text-text-muted text-[11px] mt-1.5">Hỗ trợ paste ảnh từ clipboard, kéo thả, upload file. Bôi đen text để format.</p>
             </div>
           </div>
 

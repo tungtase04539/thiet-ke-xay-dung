@@ -292,3 +292,48 @@ html.lenis, html.lenis body {
   color: rgba(255,255,255,0.35);
   letter-spacing: 0.15em;
 }
+
+/* ─── TipTap Rich Editor ─────────────────────────────────── */
+.rich-editor .ProseMirror {
+  outline: none;
+  min-height: 320px;
+  color: var(--color-text);
+}
+.rich-editor .ProseMirror p.is-editor-empty:first-child::before {
+  content: attr(data-placeholder);
+  float: left;
+  color: var(--color-text-muted);
+  pointer-events: none;
+  height: 0;
+}
+.rich-editor .ProseMirror h1 { font-size: 1.8rem; font-family: var(--font-display); margin: 1.2em 0 0.5em; color: var(--color-text); }
+.rich-editor .ProseMirror h2 { font-size: 1.4rem; font-family: var(--font-display); margin: 1em 0 0.4em; color: var(--color-text); }
+.rich-editor .ProseMirror h3 { font-size: 1.15rem; font-family: var(--font-display); margin: 0.9em 0 0.4em; color: var(--color-text); }
+.rich-editor .ProseMirror p { margin: 0.6em 0; line-height: 1.75; }
+.rich-editor .ProseMirror strong { color: var(--color-text); font-weight: 600; }
+.rich-editor .ProseMirror em { color: var(--color-text-muted); }
+.rich-editor .ProseMirror u { text-decoration-color: var(--color-gold); }
+.rich-editor .ProseMirror a { color: var(--color-gold); text-decoration: underline; }
+.rich-editor .ProseMirror img { max-width: 100%; border-radius: 2px; margin: 1rem 0; border: 1px solid var(--color-border); cursor: pointer; }
+.rich-editor .ProseMirror img.ProseMirror-selectednode { outline: 2px solid var(--color-gold); }
+.rich-editor .ProseMirror ul { list-style: disc; padding-left: 1.5em; margin: 0.6em 0; }
+.rich-editor .ProseMirror ol { list-style: decimal; padding-left: 1.5em; margin: 0.6em 0; }
+.rich-editor .ProseMirror li { margin: 0.25em 0; }
+.rich-editor .ProseMirror hr { border: none; border-top: 1px solid var(--color-border); margin: 1.5em 0; }
+.rich-editor .ProseMirror blockquote { border-left: 3px solid var(--color-gold); margin-left: 0; padding-left: 1em; color: var(--color-text-muted); font-style: italic; }
+
+/* ─── Post content HTML rendering ───────────────────────── */
+.post-content h1 { font-size: 1.8rem; font-family: var(--font-display); margin: 1.4em 0 0.5em; color: var(--color-text); }
+.post-content h2 { font-size: 1.4rem; font-family: var(--font-display); margin: 1.2em 0 0.4em; color: var(--color-text); padding-bottom: 0.3em; border-bottom: 1px solid var(--color-border); }
+.post-content h3 { font-size: 1.15rem; font-family: var(--font-display); margin: 1em 0 0.4em; color: var(--color-text); }
+.post-content p { margin: 0.9em 0; line-height: 1.85; color: var(--color-text-muted); }
+.post-content strong { color: var(--color-text); font-weight: 600; }
+.post-content em { font-style: italic; }
+.post-content u { text-decoration-color: var(--color-gold); }
+.post-content a { color: var(--color-gold); text-decoration: underline; }
+.post-content img { max-width: 100%; border-radius: 2px; margin: 1.5rem auto; display: block; border: 1px solid var(--color-border); }
+.post-content ul { list-style: disc; padding-left: 1.6em; margin: 0.8em 0; color: var(--color-text-muted); }
+.post-content ol { list-style: decimal; padding-left: 1.6em; margin: 0.8em 0; color: var(--color-text-muted); }
+.post-content li { margin: 0.3em 0; line-height: 1.75; }
+.post-content hr { border: none; border-top: 1px solid var(--color-border); margin: 2em 0; }
+.post-content blockquote { border-left: 3px solid var(--color-gold); margin: 1.5em 0; padding: 0.5em 1em; color: var(--color-text-muted); font-style: italic; background: var(--color-surface); }

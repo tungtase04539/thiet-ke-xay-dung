@@ -8,6 +8,11 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import PageLoader from '@/components/PageLoader'
 
+/** Detect if content is HTML (from RichEditor) or legacy plain text + markdown images */
+function isHtmlContent(text: string) {
+  return /^<[a-z]/i.test(text.trimStart())
+}
+
 interface Post {
   id: string; slug: string; title: string; excerpt: string; content: string;
   category: string; tags: string[]; cover_image: string; read_time: string; published_at: string;
@@ -100,8 +105,11 @@ export default function PostDetail() {
               &ldquo;{post.excerpt}&rdquo;
             </p>
           )}
-          <div className="prose prose-invert prose-lg max-w-none text-text-muted leading-relaxed">
-            {renderContent(post.content ?? '')}
+          <div className={isHtmlContent(post.content ?? '') ? 'post-content' : 'prose prose-invert prose-lg max-w-none text-text-muted leading-relaxed'}>
+            {isHtmlContent(post.content ?? '')
+              ? <div dangerouslySetInnerHTML={{ __html: post.content ?? '' }} />
+              : renderContent(post.content ?? '')
+            }
           </div>
 
           {/* Tags */}
