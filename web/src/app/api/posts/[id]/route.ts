@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { supabase } from '@/lib/supabase'
+import { normalizePostCategory } from '@/lib/categories'
 
 const READONLY = ['id', 'created_at']
 function sanitize(body: Record<string, unknown>) {
@@ -18,7 +19,11 @@ export async function GET(_: NextRequest, { params }: { params: { id: string } }
 
   if (error) return NextResponse.json({ error: error.message }, { status: 500 })
   if (!data) return NextResponse.json({ error: 'Not found' }, { status: 404 })
-  return NextResponse.json(data)
+  const row =
+    typeof data.category === 'string'
+      ? { ...data, category: normalizePostCategory(data.category) }
+      : data
+  return NextResponse.json(row)
 }
 
 export async function PUT(req: NextRequest, { params }: { params: { id: string } }) {
@@ -26,6 +31,9 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
   try { body = await req.json() } catch { return NextResponse.json({ error: 'Invalid JSON' }, { status: 400 }) }
 
   const updates = sanitize(body)
+  if (typeof updates.category === 'string') {
+    updates.category = normalizePostCategory(updates.category)
+  }
   updates.updated_at = new Date().toISOString()
 
   const { data, error } = await supabase
@@ -36,7 +44,11 @@ export async function PUT(req: NextRequest, { params }: { params: { id: string }
     .single()
 
   if (error) return NextResponse.json({ error: error.message }, { status: 500 })
-  return NextResponse.json(data)
+  const row =
+    data && typeof data.category === 'string'
+      ? { ...data, category: normalizePostCategory(data.category) }
+      : data
+  return NextResponse.json(row)
 }
 
 export async function DELETE(_: NextRequest, { params }: { params: { id: string } }) {

@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, type ReactNode } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { ArrowLeft, Clock, Tag } from 'lucide-react'
@@ -15,6 +15,42 @@ interface Post {
 
 function formatDate(d: string) {
   return new Date(d).toLocaleDateString('vi-VN', { day: '2-digit', month: 'long', year: 'numeric' })
+}
+
+/** Hiển thị nội dung: đoạn thường + ảnh Markdown ![alt](url) */
+function renderContent(text: string) {
+  const re = /!\[([^\]]*)\]\(([^)]+)\)/g
+  const out: ReactNode[] = []
+  let last = 0
+  let m: RegExpExecArray | null
+  let key = 0
+  while ((m = re.exec(text)) !== null) {
+    if (m.index > last) {
+      out.push(
+        <span key={`t-${key++}`} className="whitespace-pre-wrap">
+          {text.slice(last, m.index)}
+        </span>
+      )
+    }
+    out.push(
+      // eslint-disable-next-line @next/next/no-img-element
+      <img
+        key={`i-${key++}`}
+        src={m[2]}
+        alt={m[1] || ''}
+        className="w-full rounded-sm my-6 border border-border object-contain max-h-[min(80vh,900px)] bg-bg/50"
+      />
+    )
+    last = m.index + m[0].length
+  }
+  if (last < text.length) {
+    out.push(
+      <span key={`t-${key++}`} className="whitespace-pre-wrap">
+        {text.slice(last)}
+      </span>
+    )
+  }
+  return out.length > 0 ? out : text
 }
 
 export default function PostDetail() {
@@ -64,8 +100,8 @@ export default function PostDetail() {
               &ldquo;{post.excerpt}&rdquo;
             </p>
           )}
-          <div className="prose prose-invert prose-lg max-w-none text-text-muted leading-relaxed whitespace-pre-wrap">
-            {post.content}
+          <div className="prose prose-invert prose-lg max-w-none text-text-muted leading-relaxed">
+            {renderContent(post.content ?? '')}
           </div>
 
           {/* Tags */}

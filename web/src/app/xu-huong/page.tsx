@@ -5,10 +5,11 @@ import Link from 'next/link'
 import { ArrowRight, Clock } from 'lucide-react'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import { POST_CATEGORY_FILTERS, ALL_CATEGORIES_LABEL } from '@/lib/categories'
 
 interface Post { id: string; slug: string; title: string; excerpt: string; category: string; cover_image: string; read_time: string; published_at: string }
 
-const CATEGORIES = ['Tất Cả', 'Xu Hướng', 'Kiến Thức', 'Vật Liệu', 'Phong Cách', 'Kỹ Thuật']
+const CATEGORIES = POST_CATEGORY_FILTERS
 
 function formatDate(d: string) {
   return new Date(d).toLocaleDateString('vi-VN', { day: '2-digit', month: 'long', year: 'numeric' })
@@ -16,7 +17,7 @@ function formatDate(d: string) {
 
 export default function BlogPage() {
   const [posts, setPosts] = useState<Post[]>([])
-  const [cat, setCat] = useState('Tất Cả')
+  const [cat, setCat] = useState<string>(ALL_CATEGORIES_LABEL)
 
   useEffect(() => {
     fetch('/api/posts?status=published')
@@ -32,7 +33,7 @@ export default function BlogPage() {
     return () => obs.disconnect()
   }, [posts, cat])
 
-  const filtered = cat === 'Tất Cả' ? posts : posts.filter(p => p.category === cat)
+  const filtered = cat === ALL_CATEGORIES_LABEL ? posts : posts.filter(p => p.category === cat)
 
   return (
     <>

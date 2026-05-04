@@ -189,7 +189,7 @@ insert into posts (slug, title, excerpt, content, category, cover_image, read_ti
   'Kỹ Thuật Chiếu Sáng Tạo Chiều Sâu Cho Không Gian',
   'Bí quyết sắp xếp hệ thống đèn để tôn vinh vẻ đẹp của từng góc phòng và tạo cảm xúc cho không gian.',
   'Ánh sáng là linh hồn của không gian nội thất. Một hệ thống chiếu sáng được thiết kế tốt có thể biến một căn phòng bình thường trở nên xuất sắc. Layered lighting — kết hợp đèn ambient, task và accent — là chìa khóa để tạo ra chiều sâu và cảm xúc cho không gian.',
-  'Ánh Sáng',
+  'Kỹ Thuật',
   'https://images.unsplash.com/photo-1600121848594-d8644e57abab?w=800&q=80',
   '6',
   'published',
