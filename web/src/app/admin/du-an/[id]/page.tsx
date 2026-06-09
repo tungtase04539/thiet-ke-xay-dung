@@ -10,13 +10,13 @@ interface ProjectForm {
   name: string; slug: string; type: string; area: string; style: string;
   location: string; year: string; status: string; featured: boolean;
   cover_image: string; images: string; description: string;
-  highlights: string; materials: string;
+  highlights: string; materials: string; tags: string;
 }
 
 const EMPTY: ProjectForm = {
   name: '', slug: '', type: 'Căn hộ', area: '', style: 'Neo-Classic',
   location: '', year: new Date().getFullYear().toString(), status: 'published', featured: false,
-  cover_image: '', images: '', description: '', highlights: '', materials: '',
+  cover_image: '', images: '', description: '', highlights: '', materials: '', tags: '',
 }
 
 export default function ProjectForm() {
@@ -36,6 +36,7 @@ export default function ProjectForm() {
           images: Array.isArray(d.images) ? d.images.join('\n') : d.images || '',
           highlights: Array.isArray(d.highlights) ? d.highlights.join('\n') : d.highlights || '',
           materials: Array.isArray(d.materials) ? d.materials.map((m: {name:string;type:string}) => `${m.name}|${m.type}`).join('\n') : '',
+          tags: Array.isArray(d.tags) ? d.tags.join(', ') : '',
         })
       })
     }
@@ -72,6 +73,7 @@ export default function ProjectForm() {
           const [name, type] = s.split('|')
           return { name: name?.trim() || '', type: type?.trim() || '' }
         }).filter(m => m.name),
+        tags: form.tags.split(',').map(s => s.trim()).filter(Boolean),
       }
       const url = isNew ? '/api/projects' : `/api/projects/${id}`
       const method = isNew ? 'POST' : 'PUT'
@@ -194,6 +196,15 @@ export default function ProjectForm() {
               <input type="checkbox" checked={form.featured} onChange={e => set('featured', e.target.checked)} className="accent-[#C9A84C] w-4 h-4" />
               <span className="text-sm text-text-muted">Nổi bật trên trang chủ</span>
             </label>
+          </div>
+
+          <div className="bg-surface border border-border rounded-sm p-6 space-y-4">
+            <h2 className="text-text text-sm font-medium border-b border-border pb-3 mb-5">Cài Đặt SEO</h2>
+            <div>
+              <label className={labelClass}>Từ khóa SEO (Tags)</label>
+              <textarea rows={3} value={form.tags} onChange={e => set('tags', e.target.value)} className={textareaClass} placeholder="VD: nhà phố, biệt thự hiện đại, hải phòng" />
+              <p className="text-text-muted text-[10px] mt-1">Các từ khóa ngăn cách bằng dấu phẩy (,)</p>
+            </div>
           </div>
 
           <div className="bg-surface border border-border rounded-sm p-6 space-y-3">
