@@ -7,12 +7,14 @@ import { uploadImageFile } from '@/lib/client-image-upload'
 interface ImageUploadProps {
   value: string
   onChange: (url: string) => void
+  onMultipleChange?: (urls: string[]) => void
+  multiple?: boolean
   folder?: string
   label?: string
   className?: string
 }
 
-export default function ImageUpload({ value, onChange, folder = 'anphuoc/uploads', label, className = '' }: ImageUploadProps) {
+export default function ImageUpload({ value, onChange, onMultipleChange, multiple = false, folder = 'anphuoc/uploads', label, className = '' }: ImageUploadProps) {
   const [uploading, setUploading] = useState(false)
   const [mode, setMode] = useState<'upload' | 'url'>('upload')
   const [urlInput, setUrlInput] = useState('')
@@ -31,17 +33,47 @@ export default function ImageUpload({ value, onChange, folder = 'anphuoc/uploads
     }
   }
 
+  const uploadMultiple = async (files: File[]) => {
+    setUploading(true)
+    try {
+      const uploadPromises = files.map(file => uploadImageFile(file, folder))
+      const urls = await Promise.all(uploadPromises)
+      if (onMultipleChange) {
+        onMultipleChange(urls)
+      } else if (urls.length > 0) {
+        onChange(urls[0])
+      }
+    } catch (err) {
+      const msg = err instanceof Error ? err.message : 'Lỗi kết nối khi upload'
+      alert(msg)
+    } finally {
+      setUploading(false)
+    }
+  }
+
   const handleFile = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0]
-    if (file) upload(file)
+    const files = e.target.files ? Array.from(e.target.files) : []
+    if (files.length > 0) {
+      if (multiple) {
+        uploadMultiple(files)
+      } else {
+        upload(files[0])
+      }
+    }
     // Cho phép chọn lại cùng file lần sau
     if (fileRef.current) fileRef.current.value = ''
   }
 
   const handleDrop = (e: React.DragEvent) => {
     e.preventDefault()
-    const file = e.dataTransfer.files?.[0]
-    if (file && file.type.startsWith('image/')) upload(file)
+    const files = e.dataTransfer.files ? Array.from(e.dataTransfer.files).filter(f => f.type.startsWith('image/')) : []
+    if (files.length > 0) {
+      if (multiple) {
+        uploadMultiple(files)
+      } else if (files[0]) {
+        upload(files[0])
+      }
+    }
   }
 
   const ic = 'w-full bg-bg border border-border rounded-sm px-4 py-2.5 text-text text-sm focus:border-gold outline-none transition-colors'
@@ -75,13 +107,15 @@ export default function ImageUpload({ value, onChange, folder = 'anphuoc/uploads
             uploading ? 'border-gold/50 bg-gold/5' : 'border-border hover:border-gold/40'
           }`}
         >
-          <input ref={fileRef} type="file" accept="image/*" onChange={handleFile} className="hidden" />
+          <input ref={fileRef} type="file" accept="image/*" onChange={handleFile} className="hidden" multiple={multiple} />
           {uploading ? (
             <div className="text-gold text-sm animate-pulse">Đang upload...</div>
           ) : (
             <div>
               <Upload size={20} className="mx-auto mb-2 text-text-muted" />
-              <div className="text-text-muted text-xs">Kéo thả hoặc click để chọn ảnh</div>
+              <div className="text-text-muted text-xs">
+                {multiple ? 'Kéo thả hoặc click để chọn một hoặc nhiều ảnh' : 'Kéo thả hoặc click để chọn ảnh'}
+              </div>
               <div className="text-text-muted text-[10px] mt-1">PNG, JPG, WebP</div>
             </div>
           )}

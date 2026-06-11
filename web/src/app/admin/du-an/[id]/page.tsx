@@ -157,7 +157,14 @@ export default function ProjectForm() {
               <label className={labelClass}>Thêm Ảnh Vào Gallery</label>
               <ImageUpload
                 value=""
-                onChange={url => set('images', form.images ? form.images + '\n' + url : url)}
+                multiple={true}
+                onChange={() => {}}
+                onMultipleChange={urls => {
+                  setForm(f => {
+                    const current = f.images ? f.images.split('\n').map(s => s.trim()).filter(Boolean) : []
+                    return { ...f, images: [...current, ...urls].join('\n') }
+                  })
+                }}
                 folder="anphuoc/projects"
               />
             </div>

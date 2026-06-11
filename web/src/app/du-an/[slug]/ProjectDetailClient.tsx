@@ -26,7 +26,7 @@ export default function ProjectDetailClient({ initialProject }: { initialProject
         {/* Hero */}
         <section className="relative h-screen min-h-[600px] flex flex-col justify-end">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={images[0]} alt={project.name} className="absolute inset-0 w-full h-full object-cover" />
+          <img src={project.cover_image || images[0]} alt={project.name} className="absolute inset-0 w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-bg/85 via-bg/50 to-bg/20" />
           <div className="absolute inset-0 bg-gradient-to-t from-bg/95 via-transparent to-bg/30" />
           <div className="relative z-10 max-w-7xl mx-auto px-6 pb-10 w-full">
